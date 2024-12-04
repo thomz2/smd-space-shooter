@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvya6ox4fom6q"]
+[gd_scene load_steps=4 format=3 uid="uid://cvya6ox4fom6q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl27y"]
 [ext_resource type="ArrayMesh" uid="uid://pou5tpidnnbv" path="res://assets/kenney_spaceships/craft_speederC.obj" id="2_bktko"]
 
-[node name="Player" type="CharacterBody3D"]
-collision_layer = 0
+[sub_resource type="BoxShape3D" id="BoxShape3D_gsnyb"]
+size = Vector3(2.15039, 0.561646, 1.62308)
+
+[node name="Player" type="CharacterBody3D" groups=["PLAYER"]]
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_tl27y")
+health = 1.0
 
 [node name="Model" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.276724, 0)
 mesh = ExtResource("2_bktko")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0303345, 0.109482)
+shape = SubResource("BoxShape3D_gsnyb")

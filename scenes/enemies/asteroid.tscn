@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://030jn1smum0a"]
+
+[ext_resource type="Script" path="res://scripts/combat/combat_character_3d.gd" id="1_apuxq"]
+[ext_resource type="ArrayMesh" uid="uid://bpqyfuwyrmuhu" path="res://assets/kenney_spaceships/meteor_detailed.obj" id="2_npsw0"]
+[ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_or822"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5f4vk"]
+radius = 0.4549
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qx7nk"]
+radius = 0.442509
+
+[node name="Asteroid" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_apuxq")
+health = 1.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_5f4vk")
+
+[node name="MeteorDetailed" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.357863, 0)
+mesh = ExtResource("2_npsw0")
+
+[node name="Hitbox3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_or822")
+target_type = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
+shape = SubResource("SphereShape3D_qx7nk")

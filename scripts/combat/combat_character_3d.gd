@@ -7,7 +7,8 @@ signal killed
 
 @export var health := 10.0 :
 	set(value): # custom setter function
-		health = value
+		if health <= 0: return # don't process damage if already dead
+		health = max(0, value)
 		if health <= 0:
 			_kill()
 

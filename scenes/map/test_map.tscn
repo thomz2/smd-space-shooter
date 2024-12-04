@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7s3q5f5vttjw"]
+[gd_scene load_steps=6 format=3 uid="uid://b7s3q5f5vttjw"]
 
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="1_a8d83"]
+[ext_resource type="PackedScene" uid="uid://030jn1smum0a" path="res://scenes/enemies/asteroid.tscn" id="2_meryx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_knqax"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,3 +28,6 @@ shadow_enabled = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.0017, 1.27105, -4.14033)
 
 [node name="Player" parent="." instance=ExtResource("1_a8d83")]
+
+[node name="Asteroid" parent="." instance=ExtResource("2_meryx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325872, 1.85491, -7.34551)
