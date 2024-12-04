@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkudow7s0253u"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy_ship.gd" id="1_edg3i"]
+[ext_resource type="ArrayMesh" uid="uid://b6rydhk2h8610" path="res://assets/kenney_spaceships/craft_cargoA.obj" id="2_tco0o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4dqk"]
+size = Vector3(1, 1, 2.55151)
+
+[node name="EnemyShip" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_edg3i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.069458)
+shape = SubResource("BoxShape3D_p4dqk")
+
+[node name="CraftCargoA" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.399677, 0)
+mesh = ExtResource("2_tco0o")
+
+[node name="ShootTimer" type="Timer" parent="."]
+process_callback = 0
+autostart = true

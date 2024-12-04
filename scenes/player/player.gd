@@ -8,7 +8,21 @@ var move_speed : float = 10.0
 ## In spatial units per second squared.
 var accel : float = 50.0
 
+## What bullet to spawn when shoot button is pressed.
+@export var packed_bullet : PackedScene
+#TODO: move this to separate PlayerShooter node
+
+
 @onready var model = $Model
+
+
+
+
+func shoot_bullet() -> void:
+	var bullet : Bullet3D = packed_bullet.instantiate()
+	get_tree().current_scene.add_child(bullet)
+	bullet.global_position = self.global_position
+	bullet.global_rotation = self.global_rotation
 
 
 # called every physics frame
@@ -25,13 +39,16 @@ func _physics_process(delta: float) -> void:
 	
 	# rotation effect for the model
 	rotation_degrees.x = clamp(velocity.y * 2, -30, 30)
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		shoot_bullet()
 
 
 # replace normal behavior with custom animation
 func _kill():
 	# can't collide if dead
-	set.bindv(["collision_layer", 0]).call_deferred()
-	set.bindv(["collision_mask", 0]).call_deferred()
+	set_deferred("collision_layer", 0)
+	set_deferred("collision_mask", 0)
 	
 	# death animation
 	var move_tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)

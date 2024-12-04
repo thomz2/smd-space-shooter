@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvya6ox4fom6q"]
+[gd_scene load_steps=5 format=3 uid="uid://cvya6ox4fom6q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl27y"]
 [ext_resource type="ArrayMesh" uid="uid://pou5tpidnnbv" path="res://assets/kenney_spaceships/craft_speederC.obj" id="2_bktko"]
+[ext_resource type="PackedScene" uid="uid://cq3pg2mk2yn72" path="res://scenes/player/player_bullet.tscn" id="2_odxub"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsnyb"]
 size = Vector3(2.15039, 0.561646, 1.62308)
@@ -10,6 +11,7 @@ size = Vector3(2.15039, 0.561646, 1.62308)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_tl27y")
+packed_bullet = ExtResource("2_odxub")
 health = 1.0
 
 [node name="Model" type="MeshInstance3D" parent="."]
