@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c5uki1moe1a3f"
+path="res://.godot/imported/gate_complex.obj-f4aaa31beb2274d02cc0b37be80cbf6f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gate_complex.obj-f4aaa31beb2274d02cc0b37be80cbf6f.mesh"]
+
+source_file="res://assets/kenney_spaceships/gate_complex.obj"
+dest_files=["res://.godot/imported/gate_complex.obj-f4aaa31beb2274d02cc0b37be80cbf6f.mesh", "res://.godot/imported/gate_complex.obj-f4aaa31beb2274d02cc0b37be80cbf6f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

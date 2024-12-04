@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6lu4wo7wskww"
+path="res://.godot/imported/platform_cornerRound.obj-8d7605aa69a30fe10f58b74f6bc95610.mesh"
+
+[deps]
+
+files=["res://.godot/imported/platform_cornerRound.obj-8d7605aa69a30fe10f58b74f6bc95610.mesh"]
+
+source_file="res://assets/kenney_spaceships/platform_cornerRound.obj"
+dest_files=["res://.godot/imported/platform_cornerRound.obj-8d7605aa69a30fe10f58b74f6bc95610.mesh", "res://.godot/imported/platform_cornerRound.obj-8d7605aa69a30fe10f58b74f6bc95610.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

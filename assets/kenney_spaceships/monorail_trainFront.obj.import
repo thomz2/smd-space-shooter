@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ca63otsguhx07"
+path="res://.godot/imported/monorail_trainFront.obj-942f18132cb21b1c37f54bf6251c8bda.mesh"
+
+[deps]
+
+files=["res://.godot/imported/monorail_trainFront.obj-942f18132cb21b1c37f54bf6251c8bda.mesh"]
+
+source_file="res://assets/kenney_spaceships/monorail_trainFront.obj"
+dest_files=["res://.godot/imported/monorail_trainFront.obj-942f18132cb21b1c37f54bf6251c8bda.mesh", "res://.godot/imported/monorail_trainFront.obj-942f18132cb21b1c37f54bf6251c8bda.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

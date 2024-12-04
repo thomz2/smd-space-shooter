@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dl5hko22l7132"
+path="res://.godot/imported/platform_end.obj-1a7423462f0db30d684efefa2d318694.mesh"
+
+[deps]
+
+files=["res://.godot/imported/platform_end.obj-1a7423462f0db30d684efefa2d318694.mesh"]
+
+source_file="res://assets/kenney_spaceships/platform_end.obj"
+dest_files=["res://.godot/imported/platform_end.obj-1a7423462f0db30d684efefa2d318694.mesh", "res://.godot/imported/platform_end.obj-1a7423462f0db30d684efefa2d318694.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

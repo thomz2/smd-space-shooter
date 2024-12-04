@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://vy10mxuqa05t"
+path="res://.godot/imported/rocket_baseB.obj-35673875e5023b0482a365dcad69661c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rocket_baseB.obj-35673875e5023b0482a365dcad69661c.mesh"]
+
+source_file="res://assets/kenney_spaceships/rocket_baseB.obj"
+dest_files=["res://.godot/imported/rocket_baseB.obj-35673875e5023b0482a365dcad69661c.mesh", "res://.godot/imported/rocket_baseB.obj-35673875e5023b0482a365dcad69661c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

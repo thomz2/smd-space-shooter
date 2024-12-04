@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dwgbkesmeb5i5"
+path="res://.godot/imported/rock_crystals.obj-891e6b46b6bd0aece5be843a81f218aa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rock_crystals.obj-891e6b46b6bd0aece5be843a81f218aa.mesh"]
+
+source_file="res://assets/kenney_spaceships/rock_crystals.obj"
+dest_files=["res://.godot/imported/rock_crystals.obj-891e6b46b6bd0aece5be843a81f218aa.mesh", "res://.godot/imported/rock_crystals.obj-891e6b46b6bd0aece5be843a81f218aa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

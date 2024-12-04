@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7eg2icnm3x8p"
+path="res://.godot/imported/pipe_supportHigh.obj-64450c888a027fef278f31c01b18e5f7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pipe_supportHigh.obj-64450c888a027fef278f31c01b18e5f7.mesh"]
+
+source_file="res://assets/kenney_spaceships/pipe_supportHigh.obj"
+dest_files=["res://.godot/imported/pipe_supportHigh.obj-64450c888a027fef278f31c01b18e5f7.mesh", "res://.godot/imported/pipe_supportHigh.obj-64450c888a027fef278f31c01b18e5f7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://1tt41s82h7xm"
+path="res://.godot/imported/pipe_ringSupport.obj-a7a70a516dd960f00db2305b32dbda53.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pipe_ringSupport.obj-a7a70a516dd960f00db2305b32dbda53.mesh"]
+
+source_file="res://assets/kenney_spaceships/pipe_ringSupport.obj"
+dest_files=["res://.godot/imported/pipe_ringSupport.obj-a7a70a516dd960f00db2305b32dbda53.mesh", "res://.godot/imported/pipe_ringSupport.obj-a7a70a516dd960f00db2305b32dbda53.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

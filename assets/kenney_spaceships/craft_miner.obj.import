@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://7jywqkshj4hm"
+path="res://.godot/imported/craft_miner.obj-03adfe6b7dd8e5f5ec9a2f714ce0fb0b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/craft_miner.obj-03adfe6b7dd8e5f5ec9a2f714ce0fb0b.mesh"]
+
+source_file="res://assets/kenney_spaceships/craft_miner.obj"
+dest_files=["res://.godot/imported/craft_miner.obj-03adfe6b7dd8e5f5ec9a2f714ce0fb0b.mesh", "res://.godot/imported/craft_miner.obj-03adfe6b7dd8e5f5ec9a2f714ce0fb0b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

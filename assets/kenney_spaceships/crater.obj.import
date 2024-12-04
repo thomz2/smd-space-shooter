@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c4a75lmurgv3s"
+path="res://.godot/imported/crater.obj-4c407cd6c954ef69302be3a5c520c8d3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/crater.obj-4c407cd6c954ef69302be3a5c520c8d3.mesh"]
+
+source_file="res://assets/kenney_spaceships/crater.obj"
+dest_files=["res://.godot/imported/crater.obj-4c407cd6c954ef69302be3a5c520c8d3.mesh", "res://.godot/imported/crater.obj-4c407cd6c954ef69302be3a5c520c8d3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

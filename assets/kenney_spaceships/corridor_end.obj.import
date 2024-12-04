@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ccqhmax1br6ln"
+path="res://.godot/imported/corridor_end.obj-4810b4da0cc3ceb78183506e04cd5c8f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/corridor_end.obj-4810b4da0cc3ceb78183506e04cd5c8f.mesh"]
+
+source_file="res://assets/kenney_spaceships/corridor_end.obj"
+dest_files=["res://.godot/imported/corridor_end.obj-4810b4da0cc3ceb78183506e04cd5c8f.mesh", "res://.godot/imported/corridor_end.obj-4810b4da0cc3ceb78183506e04cd5c8f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

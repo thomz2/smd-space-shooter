@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bhbd88w4opsew"
+path="res://.godot/imported/monorail_trackSupport.obj-42121af11b0a1c21476780c7b1481127.mesh"
+
+[deps]
+
+files=["res://.godot/imported/monorail_trackSupport.obj-42121af11b0a1c21476780c7b1481127.mesh"]
+
+source_file="res://assets/kenney_spaceships/monorail_trackSupport.obj"
+dest_files=["res://.godot/imported/monorail_trackSupport.obj-42121af11b0a1c21476780c7b1481127.mesh", "res://.godot/imported/monorail_trackSupport.obj-42121af11b0a1c21476780c7b1481127.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

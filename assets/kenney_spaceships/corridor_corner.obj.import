@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3ucnc3qcf2ab"
+path="res://.godot/imported/corridor_corner.obj-e55caf1571d7ea2795ad0e006a18285f.mesh"
+
+[deps]
+
+files=["res://.godot/imported/corridor_corner.obj-e55caf1571d7ea2795ad0e006a18285f.mesh"]
+
+source_file="res://assets/kenney_spaceships/corridor_corner.obj"
+dest_files=["res://.godot/imported/corridor_corner.obj-e55caf1571d7ea2795ad0e006a18285f.mesh", "res://.godot/imported/corridor_corner.obj-e55caf1571d7ea2795ad0e006a18285f.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

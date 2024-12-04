@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ce53d2c4nckm6"
+path="res://.godot/imported/terrain_rampLarge.obj-7da6296ab7211951f001bf9260bd6684.mesh"
+
+[deps]
+
+files=["res://.godot/imported/terrain_rampLarge.obj-7da6296ab7211951f001bf9260bd6684.mesh"]
+
+source_file="res://assets/kenney_spaceships/terrain_rampLarge.obj"
+dest_files=["res://.godot/imported/terrain_rampLarge.obj-7da6296ab7211951f001bf9260bd6684.mesh", "res://.godot/imported/terrain_rampLarge.obj-7da6296ab7211951f001bf9260bd6684.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

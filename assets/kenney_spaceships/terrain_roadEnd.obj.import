@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cdmfr7bwbvus2"
+path="res://.godot/imported/terrain_roadEnd.obj-db3e3fec65e977f794b0b56974bc7602.mesh"
+
+[deps]
+
+files=["res://.godot/imported/terrain_roadEnd.obj-db3e3fec65e977f794b0b56974bc7602.mesh"]
+
+source_file="res://assets/kenney_spaceships/terrain_roadEnd.obj"
+dest_files=["res://.godot/imported/terrain_roadEnd.obj-db3e3fec65e977f794b0b56974bc7602.mesh", "res://.godot/imported/terrain_roadEnd.obj-db3e3fec65e977f794b0b56974bc7602.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

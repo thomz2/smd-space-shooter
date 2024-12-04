@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2phfug6xw81w"
+path="res://.godot/imported/gate_simple.obj-18e0f8eb7a07f91151c3a715ddb11f27.mesh"
+
+[deps]
+
+files=["res://.godot/imported/gate_simple.obj-18e0f8eb7a07f91151c3a715ddb11f27.mesh"]
+
+source_file="res://assets/kenney_spaceships/gate_simple.obj"
+dest_files=["res://.godot/imported/gate_simple.obj-18e0f8eb7a07f91151c3a715ddb11f27.mesh", "res://.godot/imported/gate_simple.obj-18e0f8eb7a07f91151c3a715ddb11f27.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

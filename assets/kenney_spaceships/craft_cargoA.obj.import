@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b6rydhk2h8610"
+path="res://.godot/imported/craft_cargoA.obj-4fe1995b9a741816144c5989f8cf1a63.mesh"
+
+[deps]
+
+files=["res://.godot/imported/craft_cargoA.obj-4fe1995b9a741816144c5989f8cf1a63.mesh"]
+
+source_file="res://assets/kenney_spaceships/craft_cargoA.obj"
+dest_files=["res://.godot/imported/craft_cargoA.obj-4fe1995b9a741816144c5989f8cf1a63.mesh", "res://.godot/imported/craft_cargoA.obj-4fe1995b9a741816144c5989f8cf1a63.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
