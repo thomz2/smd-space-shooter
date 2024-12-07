@@ -22,7 +22,7 @@ func shoot_bullet() -> void:
 	var bullet : Bullet3D = packed_bullet.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
-	bullet.global_rotation = self.global_rotation
+	#bullet.global_rotation = self.global_rotation
 
 
 # called every physics frame

@@ -6,7 +6,7 @@ extends Area3D
 
 signal destroyed
 
-enum TargetType { ENEMY, PLAYER, BOTH }
+enum TargetType { NONE, ENEMY, PLAYER, BOTH }
 
 
 
@@ -19,13 +19,15 @@ enum TargetType { ENEMY, PLAYER, BOTH }
 		set_deferred("process_mode", PROCESS_MODE_DISABLED if disabled else PROCESS_MODE_INHERIT)
 
 ## What type of character this hitbox should hit and damage. Automatically sets collision masks.
-@export var target_type : TargetType = TargetType.ENEMY :
+@export var target_type : TargetType = TargetType.NONE :
 	set(value):
 		target_type = value
 
 		collision_layer = 0 
 		collision_mask = 0 # reset masks
 		match target_type:
+			TargetType.NONE:
+				pass
 			TargetType.ENEMY:
 				set_collision_mask_value(3, true)
 			TargetType.PLAYER:
@@ -47,7 +49,8 @@ func _ready():
 	# when added in the editor
 	if Engine.is_editor_hint():
 		monitorable = false
-		target_type = TargetType.ENEMY # run setter
+		if target_type == TargetType.NONE:
+			target_type = TargetType.NONE # run setter function
 	# when created in the game
 	else:
 		body_entered.connect(_on_body_entered)

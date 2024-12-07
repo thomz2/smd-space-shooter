@@ -13,6 +13,8 @@ material = SubResource("StandardMaterial3D_w2mdf")
 size = Vector3(1.4, 0.4, 0.7)
 
 [node name="EnemyShipBullet" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("1_vtwr2")
 initial_speed = 30.0
 
@@ -29,7 +31,7 @@ collision_layer = 0
 collision_mask = 2
 monitorable = false
 script = ExtResource("2_6lfbu")
-target_type = 1
+target_type = 2
 destroy_after_collision = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]

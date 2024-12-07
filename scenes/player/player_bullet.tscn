@@ -10,9 +10,11 @@ albedo_color = Color(0, 1, 1, 1)
 material = SubResource("StandardMaterial3D_xo56r")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxvkb"]
-size = Vector3(1.4, 0.4, 0.7)
+size = Vector3(1.4, 0.567383, 0.7)
 
 [node name="PlayerBullet" type="CharacterBody3D" node_paths=PackedStringArray("main_hitbox")]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_q1dvw")
 main_hitbox = NodePath("Hitbox3D")
 
@@ -29,6 +31,7 @@ collision_layer = 0
 collision_mask = 4
 monitorable = false
 script = ExtResource("2_62po3")
+target_type = 1
 destroy_after_collision = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]

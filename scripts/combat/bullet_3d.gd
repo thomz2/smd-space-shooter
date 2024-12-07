@@ -1,3 +1,4 @@
+@tool
 class_name Bullet3D
 extends CharacterBody3D
 ## A bullet that always flies forwards, towards negative Z.
@@ -30,8 +31,13 @@ func expire() -> void:
 
 
 func _ready() -> void:
-	set_deferred("collision_layer", 0)
-	set_deferred("collision_mask", 0)
+	if Engine.is_editor_hint():
+		collision_layer = 0
+		collision_mask = 0
+		#set_deferred("collision_layer", 0)
+		#set_deferred("collision_mask", 0)
+		return
+	
 	speed = initial_speed
 	if main_hitbox:
 		main_hitbox.destroyed.connect(self.destroy)
