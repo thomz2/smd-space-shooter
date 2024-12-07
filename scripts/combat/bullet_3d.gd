@@ -44,6 +44,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint(): return #don't run deletion code on the editor please
+	
 	velocity = get_global_forwards() * speed
 	move_and_slide()
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7s3q5f5vttjw"]
+[gd_scene load_steps=8 format=3 uid="uid://b7s3q5f5vttjw"]
 
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="1_a8d83"]
 [ext_resource type="PackedScene" uid="uid://030jn1smum0a" path="res://scenes/enemies/asteroid.tscn" id="2_meryx"]
 [ext_resource type="PackedScene" uid="uid://bkudow7s0253u" path="res://scenes/enemies/enemy_ship.tscn" id="3_3o3x5"]
+[ext_resource type="PackedScene" uid="uid://cga4v1pg77y3o" path="res://scenes/enemies/generic_bullet.tscn" id="4_b26ht"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_knqax"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -46,3 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325872, -1.57253, -6.34888
 
 [node name="EnemyShip" parent="." instance=ExtResource("3_3o3x5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0413089, 4.46917, -12.8832)
+
+[node name="GenericBullet" parent="." instance=ExtResource("4_b26ht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.47924)

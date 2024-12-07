@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cga4v1pg77y3o"]
+
+[ext_resource type="Script" path="res://scripts/combat/bullet_3d.gd" id="1_35xqs"]
+[ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="2_ycdo7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_n285d"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_167f6"]
+radius = 0.3
+
+[node name="GenericBullet" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_35xqs")
+initial_speed = 0.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_n285d")
+
+[node name="Hitbox3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("2_ycdo7")
+target_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
+shape = SubResource("SphereShape3D_167f6")
