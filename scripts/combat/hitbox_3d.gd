@@ -1,4 +1,5 @@
 @tool
+@icon("res://scripts/combat/hitbox_3d_icon.png")
 class_name Hitbox3D
 extends Area3D
 ## hitbox_3d.gd

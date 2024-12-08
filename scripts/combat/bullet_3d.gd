@@ -1,4 +1,5 @@
 @tool
+@icon("res://scripts/combat/bullet_3d_icon.png")
 class_name Bullet3D
 extends CharacterBody3D
 ## A bullet that always flies forwards, towards negative Z.

@@ -1,3 +1,4 @@
+@icon("res://scripts/combat/combat_character_3d_icon.png")
 class_name CombatCharacter3D
 extends CharacterBody3D
 
