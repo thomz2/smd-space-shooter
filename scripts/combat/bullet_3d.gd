@@ -6,8 +6,6 @@ extends CharacterBody3D
 ## It does not use any collisions.
 ## To damage targets, add a child Hitbox3D.
 
-
-
 ## The speed this bullet has when created (can be changed later)
 @export var initial_speed := 50.0
 var speed : float = 0.0
@@ -18,9 +16,6 @@ var lifetime : float = 0.0
 
 ## For connecting signals automatically
 @export var main_hitbox : Hitbox3D = null
-
-
-
 
 ## Runs when this bullet's hitbox collides with something. Override this if you want to play an animation when this is destroyed.
 func destroy() -> void:

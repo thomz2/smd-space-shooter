@@ -42,12 +42,12 @@ func spawn_enemies():
   #then make a random number in that range
   var rand_num = rand.randi_range(0,spawn_length)
   #We use that number to randomly select a spawner node position to use 
-  var spawn_postion = self.get_child(rand_num).position
+  var spawn_postion = self.get_child(rand_num).global_position
   #we add the monster as a child of the level
   #We set the monsters position to the spawn location
-  m.position = spawn_postion
+  get_tree().current_scene.add_child(m)
+  m.global_position = spawn_postion
   m.killed.connect(enemy_death)
-  add_child(m)
   #This is just a fast way to create a timer similar to wait in python
   await get_tree().create_timer(0.1).timeout
   

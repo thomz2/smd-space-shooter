@@ -24,7 +24,7 @@ var is_invincible : bool = false :
 @export var packed_bullet : PackedScene
 #TODO: move this to separate PlayerShooter node
 
-@export var fire_rate = 0.2
+@export var fire_rate = 0.05
 var can_shoot : bool = true
 
 @onready var model = $Model

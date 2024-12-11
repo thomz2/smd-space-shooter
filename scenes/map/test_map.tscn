@@ -57,3 +57,4 @@ initial_speed_override = 10.0
 
 [node name="GenericBullet" parent="." instance=ExtResource("4_b26ht")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.47924)
+collision_layer = 0
