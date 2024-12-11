@@ -61,6 +61,14 @@ func _ready():
 func destroy() -> void:
 	queue_free()
 
+## Helper function
+func hits_player() -> bool:
+	return target_type == TargetType.PLAYER or target_type == TargetType.BOTH
+
+## Helper function
+func hits_enemy() -> bool:
+	return target_type == TargetType.ENEMY or target_type == TargetType.BOTH
+
 
 func _on_body_entered(body:Node3D):
 	if body is CombatCharacter3D:

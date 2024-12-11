@@ -8,13 +8,25 @@ var move_speed : float = 10.0
 ## In spatial units per second squared.
 var accel : float = 50.0
 
+## If positive, the player is dodging, and represents time in seconds until the dodge ends.
+## If negative, the player is not dodging
+var dodge_timer : float = 0.0
+
+var is_invincible : bool = false :
+	set(value):
+		is_invincible = value
+		if value: #disable collisions for player
+			set_collision_layer_value(2, false)
+		else:
+			set_collision_layer_value(2, true)
+
 ## What bullet to spawn when shoot button is pressed.
 @export var packed_bullet : PackedScene
 #TODO: move this to separate PlayerShooter node
 
 
 @onready var model = $Model
-
+@onready var reflector = $PlayerBulletReflectorArea3D
 
 
 
@@ -23,6 +35,20 @@ func shoot_bullet() -> void:
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
 	#bullet.global_rotation = self.global_rotation
+
+func dodge() -> void:
+	dodge_timer = 1.0
+	is_invincible = true #disables collisions
+	reflector.disabled = false
+	var rotation_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	rotation_tween.tween_property(self, "rotation_degrees:z", 720, dodge_timer * 0.9).from(0)
+	
+	var collision_tween = create_tween()
+	collision_tween.tween_property(self, "is_invincible", true, 0)
+	collision_tween.tween_property(reflector, "disabled", false, 0)
+	collision_tween.tween_interval(dodge_timer)
+	collision_tween.tween_property(reflector, "disabled", true, 0)
+	collision_tween.tween_property(self, "is_invincible", false, 0)
 
 
 # called every physics frame
@@ -40,8 +66,16 @@ func _physics_process(delta: float) -> void:
 	# rotation effect for the model
 	rotation_degrees.x = clamp(velocity.y * 2, -30, 30)
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("shoot"):
 		shoot_bullet()
+	
+	if dodge_timer > 0: 
+		dodge_timer -= delta
+		#if dodge_timer <= 0: #trying on tweeners for now
+			#is_invincible = false
+			#reflector.disabled = true
+	if dodge_timer <= 0 and Input.is_action_just_pressed("dodge"):
+		dodge()
 
 
 # replace normal behavior with custom animation

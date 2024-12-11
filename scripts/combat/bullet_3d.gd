@@ -32,6 +32,7 @@ func expire() -> void:
 
 
 func _ready() -> void:
+	set_collision_layer_value(4, true)
 	if Engine.is_editor_hint():
 		collision_layer = 0
 		collision_mask = 0
@@ -40,6 +41,13 @@ func _ready() -> void:
 		return
 	
 	speed = initial_speed
+	# try finding at least some hitbox idk
+	if not main_hitbox:
+		for child in get_children():
+			if child is Hitbox3D:
+				main_hitbox = child
+				break
+	# connect signals
 	if main_hitbox:
 		main_hitbox.destroyed.connect(self.destroy)
 
@@ -56,3 +64,6 @@ func _physics_process(delta: float) -> void:
 
 func get_global_forwards() -> Vector3:
 	return -global_basis.z
+
+func set_global_forwards(forwards:Vector3) -> void:
+	look_at(global_position + forwards, Vector3.UP)
