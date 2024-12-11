@@ -31,6 +31,7 @@ var can_shoot : bool = true
 @onready var reflector = $PlayerBulletReflectorArea3D
 
 func _ready() -> void:
+	super()
 	var timer = Timer.new()
 	timer.one_shot = true
 	timer.wait_time = fire_rate
