@@ -24,11 +24,22 @@ var is_invincible : bool = false :
 @export var packed_bullet : PackedScene
 #TODO: move this to separate PlayerShooter node
 
+@export var fire_rate = 0.2
+var can_shoot : bool = true
 
 @onready var model = $Model
 @onready var reflector = $PlayerBulletReflectorArea3D
 
+func _ready() -> void:
+	var timer = Timer.new()
+	timer.one_shot = true
+	timer.wait_time = fire_rate
+	timer.name = "ShootTimer"
+	add_child(timer)
+	timer.timeout.connect(_on_shoot_timer_timeout)
 
+func _on_shoot_timer_timeout() -> void:
+	can_shoot = true
 
 func shoot_bullet() -> void:
 	var bullet : Bullet3D = packed_bullet.instantiate()
@@ -70,8 +81,11 @@ func _physics_process(delta: float) -> void:
 	# rotation effect for the model
 	rotation_degrees.x = clamp(velocity.y * 2, -30, 30)
 	
-	if Input.is_action_just_pressed("shoot"):
+	#if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot") and can_shoot:
 		shoot_bullet()
+		can_shoot = false
+		$ShootTimer.start()
 	
 	if dodge_timer > 0: 
 		dodge_timer -= delta
