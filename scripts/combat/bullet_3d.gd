@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 
 
 func get_global_forwards() -> Vector3:
-	return -global_basis.z
+	return (-global_basis.z).normalized()
 
 func set_global_forwards(forwards:Vector3) -> void:
 	look_at(global_position + forwards, Vector3.UP)

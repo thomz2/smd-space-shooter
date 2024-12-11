@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvya6ox4fom6q"]
+[gd_scene load_steps=8 format=3 uid="uid://cvya6ox4fom6q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl27y"]
 [ext_resource type="ArrayMesh" uid="uid://pou5tpidnnbv" path="res://assets/kenney_spaceships/craft_speederC.obj" id="2_bktko"]
 [ext_resource type="PackedScene" uid="uid://cq3pg2mk2yn72" path="res://scenes/player/player_bullet.tscn" id="2_odxub"]
 [ext_resource type="Script" path="res://scenes/player/player_reflector_area.gd" id="4_p5ua8"]
+[ext_resource type="PackedScene" uid="uid://7wauwjgrekp3" path="res://scenes/player/heads_up_display.tscn" id="5_d8vqi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsnyb"]
 size = Vector3(2.15039, 0.561646, 1.62308)
@@ -16,7 +17,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_tl27y")
 packed_bullet = ExtResource("2_odxub")
-health = 1.0
+max_health = 50.0
 
 [node name="Model" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.276724, 0)
@@ -36,3 +37,5 @@ disabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerBulletReflectorArea3D"]
 shape = SubResource("SphereShape3D_0rek0")
+
+[node name="HeadsUpDisplay" parent="." instance=ExtResource("5_d8vqi")]

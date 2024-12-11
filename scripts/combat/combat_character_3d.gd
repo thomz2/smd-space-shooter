@@ -4,16 +4,27 @@ extends CharacterBody3D
 
 
 signal killed
+signal health_changed(new_amount:float)
 
 
-@export var health := 10.0 :
+@export var max_health : float = 10.0:
+	set(value):
+		max_health = max(1.0, value)
+		health = health #run setter
+
+var health : float = max_health :
 	set(value): # custom setter function
 		if health <= 0: return # don't process damage if already dead
-		health = max(0, value)
+		health = clamp(value, 0, max_health)
+		health_changed.emit(health)
 		if health <= 0:
-			_kill()
+			kill()
 
 
-func _kill() -> void:
+func _ready() -> void:
+	health = max_health
+
+
+func kill() -> void:
 	killed.emit()
 	queue_free() # deletes the node and its children.

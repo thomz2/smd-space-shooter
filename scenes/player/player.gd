@@ -37,18 +37,22 @@ func shoot_bullet() -> void:
 	#bullet.global_rotation = self.global_rotation
 
 func dodge() -> void:
-	dodge_timer = 1.0
-	is_invincible = true #disables collisions
-	reflector.disabled = false
-	var rotation_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	rotation_tween.tween_property(self, "rotation_degrees:z", 720, dodge_timer * 0.9).from(0)
+	dodge_timer = 0.5
+	var active_reflect_timer = 0.3
 	
-	var collision_tween = create_tween()
-	collision_tween.tween_property(self, "is_invincible", true, 0)
-	collision_tween.tween_property(reflector, "disabled", false, 0)
-	collision_tween.tween_interval(dodge_timer)
-	collision_tween.tween_property(reflector, "disabled", true, 0)
-	collision_tween.tween_property(self, "is_invincible", false, 0)
+	var rotation_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	rotation_tween.tween_property(self, "rotation_degrees:z", 360, dodge_timer).from(0)
+	
+	var invincibility_tween = create_tween()
+	invincibility_tween.tween_property(self, "is_invincible", true, 0)
+	invincibility_tween.tween_interval(active_reflect_timer)
+	invincibility_tween.tween_property(self, "is_invincible", false, 0)
+	
+	var reflect_tween = create_tween()
+	reflect_tween.tween_property(reflector, "disabled", false, 0)
+	reflect_tween.tween_interval(active_reflect_timer)
+	reflect_tween.tween_property(reflector, "disabled", true, 0)
+	
 
 
 # called every physics frame
@@ -79,7 +83,7 @@ func _physics_process(delta: float) -> void:
 
 
 # replace normal behavior with custom animation
-func _kill():
+func kill():
 	# can't collide if dead
 	set_deferred("collision_layer", 0)
 	set_deferred("collision_mask", 0)
