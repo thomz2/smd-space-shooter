@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://7wauwjgrekp3"]
+
+[ext_resource type="Script" path="res://scenes/player/heads_up_display.gd" id="1_2tonf"]
+
+[node name="HeadsUpDisplay" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "health_label")]
+script = ExtResource("1_2tonf")
+health_bar = NodePath("MarginContainer/HBoxContainer/HealthBar")
+health_label = NodePath("MarginContainer/HBoxContainer/HealthLabel")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0.0"
