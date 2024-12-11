@@ -82,7 +82,7 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees.x = clamp(velocity.y * 2, -30, 30)
 	
 	#if Input.is_action_just_pressed("shoot"):
-	if Input.is_action_pressed("shoot") and can_shoot:
+	if Input.is_action_pressed("shoot") and can_shoot and dodge_timer <= 0:
 		shoot_bullet()
 		can_shoot = false
 		$ShootTimer.start()
