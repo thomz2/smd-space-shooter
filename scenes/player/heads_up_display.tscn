@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" path="res://scenes/player/heads_up_display.gd" id="1_2tonf"]
 
-[node name="HeadsUpDisplay" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "health_label")]
+[node name="HeadsUpDisplay" type="CanvasLayer" node_paths=PackedStringArray("health_bar", "health_label", "score_label")]
 script = ExtResource("1_2tonf")
 health_bar = NodePath("MarginContainer/HBoxContainer/HealthBar")
 health_label = NodePath("MarginContainer/HBoxContainer/HealthLabel")
+score_label = NodePath("MarginContainer/ScoreLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -30,3 +31,11 @@ layout_mode = 2
 [node name="HealthLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "0.0"
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "000000000       SCORE
+000000000   HISCORE"
+horizontal_alignment = 2

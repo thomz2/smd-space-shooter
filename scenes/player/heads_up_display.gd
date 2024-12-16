@@ -4,7 +4,7 @@ extends CanvasLayer
 
 @export var health_bar : ProgressBar
 @export var health_label : Label
-
+@export var score_label : Label
 
 @onready var player : Player = owner
 
@@ -23,6 +23,7 @@ func _process(delta:float) -> void:
 	#lerp over time makes a smoothing behavior
 	health_bar.value = lerp(health_bar.value, player.health, delta*10)
 	
+	score_label.text  = "%08d       SCORE\n%08d   HISCORE" % [GameManager.score, GameManager.high_score]
 
 
 func _on_player_killed() -> void:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://030jn1smum0a"]
+[gd_scene load_steps=7 format=3 uid="uid://030jn1smum0a"]
 
 [ext_resource type="Script" path="res://scenes/enemies/asteroid.gd" id="1_iamhl"]
 [ext_resource type="ArrayMesh" uid="uid://bpqyfuwyrmuhu" path="res://assets/kenney_spaceships/meteor_detailed.obj" id="2_npsw0"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_or822"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="4_ffckt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5f4vk"]
 radius = 0.4549
@@ -14,7 +15,7 @@ radius = 0.442509
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_iamhl")
-max_health = 1.0
+max_health = 50.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_5f4vk")
@@ -35,3 +36,6 @@ shape = SubResource("SphereShape3D_qx7nk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.357863, 0)
 mesh = ExtResource("2_npsw0")
 skeleton = NodePath("../..")
+
+[node name="OnDeathAwardPoints" type="Node" parent="."]
+script = ExtResource("4_ffckt")
