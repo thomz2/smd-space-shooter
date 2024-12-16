@@ -1,3 +1,4 @@
+@icon("res://scenes/player/player_icon.png")
 class_name Player
 extends CombatCharacter3D
 
@@ -22,7 +23,10 @@ var is_invincible : bool = false :
 
 ## What bullet to spawn when shoot button is pressed.
 @export var packed_bullet : PackedScene
-#TODO: move this to separate PlayerShooter node
+# TODO: move this to separate PlayerShooter node
+
+## The game over popup.
+var packed_game_over : PackedScene = preload("res://scenes/screens/game_over_popup.tscn")
 
 @export var fire_rate = 0.05
 var can_shoot : bool = true
@@ -114,5 +118,5 @@ func kill():
 	
 	# restart scene
 	# TODO: replace with death screen.
-	await get_tree().create_timer(1.5, true, false, true).timeout
-	get_tree().reload_current_scene()
+	await get_tree().create_timer(0.5, true, false, true).timeout
+	get_tree().current_scene.add_child(packed_game_over.instantiate())

@@ -50,7 +50,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325872, 2.68681, -2.92919)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325872, -1.57253, -6.34888)
 
 [node name="Asteroid4" parent="Enemies" instance=ExtResource("2_meryx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325872, -1.57253, -6.34888)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325872, 4.26846, -6.34888)
 
 [node name="EnemyShip" parent="Enemies" instance=ExtResource("3_3o3x5")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0413089, 4.46917, -12.8832)
