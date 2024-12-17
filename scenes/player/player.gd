@@ -28,7 +28,7 @@ var is_invincible : bool = false :
 ## The game over popup.
 var packed_game_over : PackedScene = preload("res://scenes/screens/game_over_popup.tscn")
 
-@export var fire_rate = 0.05
+@export var fire_rate = 0.09
 var can_shoot : bool = true
 
 @onready var model = $Model

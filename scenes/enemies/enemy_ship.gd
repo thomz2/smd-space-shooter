@@ -11,6 +11,9 @@ func _ready() -> void:
 	#super()
 	$ShootTimer.timeout.connect(self.shoot)
 
+func _physics_process(delta: float) -> void:
+	velocity = -global_basis.z * 1.5
+	move_and_slide()
 
 func shoot():
 	var bullet : Bullet3D = packed_bullet.instantiate()
