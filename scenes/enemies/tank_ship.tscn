@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dys00akjctl5x"]
+
+[ext_resource type="Script" path="res://scenes/enemies/tank_ship.gd" id="1_w75s0"]
+[ext_resource type="ArrayMesh" uid="uid://ca63otsguhx07" path="res://assets/kenney_spaceships/monorail_trainFront.obj" id="2_qqhfp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p4dqk"]
+size = Vector3(1, 1.32977, 1.79926)
+
+[node name="TankShip" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_w75s0")
+max_health = 150.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249298, 0.0154727)
+shape = SubResource("BoxShape3D_p4dqk")
+
+[node name="CraftCargoA" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.62908, 0, -1.42419e-07, 0, 1.62908, 0, 1.42419e-07, 0, -1.62908, 0, -0.399677, 0)
+mesh = ExtResource("2_qqhfp")
+
+[node name="ShootTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.2
+autostart = true

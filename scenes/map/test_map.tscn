@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7s3q5f5vttjw"]
+[gd_scene load_steps=8 format=3 uid="uid://b7s3q5f5vttjw"]
 
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="1_a8d83"]
 [ext_resource type="PackedScene" uid="uid://030jn1smum0a" path="res://scenes/enemies/asteroid.tscn" id="2_meryx"]
-[ext_resource type="PackedScene" uid="uid://bkudow7s0253u" path="res://scenes/enemies/enemy_ship.tscn" id="3_3o3x5"]
 [ext_resource type="PackedScene" uid="uid://cga4v1pg77y3o" path="res://scenes/enemies/generic_bullet.tscn" id="4_b26ht"]
-[ext_resource type="Script" path="res://scripts/combat/components/on_death_bullet_spawner.gd" id="4_mdaax"]
+[ext_resource type="PackedScene" uid="uid://dys00akjctl5x" path="res://scenes/enemies/tank_ship.tscn" id="4_l06dk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_knqax"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -52,20 +51,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325872, -1.57253, -6.34888
 [node name="Asteroid4" parent="Enemies" instance=ExtResource("2_meryx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0325872, 4.26846, -6.34888)
 
-[node name="EnemyShip" parent="Enemies" instance=ExtResource("3_3o3x5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0413089, 4.46917, -12.8832)
-
-[node name="OnDeathBulletSpawner" type="Node3D" parent="Enemies/EnemyShip"]
-script = ExtResource("4_mdaax")
-packed_bullet = ExtResource("4_b26ht")
-angle_offset_degrees = 45.0
-initial_speed_override = 10.0
-
-[node name="EnemyShip2" parent="Enemies" instance=ExtResource("3_3o3x5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0413089, -0.278532, -11.8555)
-
-[node name="OnDeathBulletSpawner" type="Node3D" parent="Enemies/EnemyShip2"]
-script = ExtResource("4_mdaax")
-packed_bullet = ExtResource("4_b26ht")
-angle_offset_degrees = 45.0
-initial_speed_override = 10.0
+[node name="TankShip" parent="." instance=ExtResource("4_l06dk")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, -10.0611)
