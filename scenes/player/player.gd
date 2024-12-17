@@ -47,12 +47,14 @@ func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
 
 func shoot_bullet() -> void:
+	$ShootinSFX.play()
 	var bullet : Bullet3D = packed_bullet.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
 	#bullet.global_rotation = self.global_rotation
 
 func dodge() -> void:
+	$DodgingSFX.play()
 	dodge_timer = 0.5
 	var active_reflect_timer = 0.3
 	

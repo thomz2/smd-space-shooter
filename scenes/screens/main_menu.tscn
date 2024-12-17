@@ -30,7 +30,6 @@ shadow_enabled = true
 transform = Transform3D(1, -4.68217e-11, 3.63798e-12, 7.04681e-12, 1, 0, 0, 0, 1, -1.83244, -0.000698378, 5.42975e-05)
 
 [node name="ShipModel" type="MeshInstance3D" parent="Ship"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = ExtResource("1_ix8oe")
 skeleton = NodePath("../..")
 
