@@ -1,29 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://blutrpxa4jgw8"]
+[gd_scene load_steps=3 format=3 uid="uid://blutrpxa4jgw8"]
 
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="1_d7tgc"]
-[ext_resource type="Script" path="res://scenes/map/spawner.gd" id="2_qjig3"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lxpsk"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_2gruq"]
-sky_material = SubResource("ProceduralSkyMaterial_lxpsk")
-
-[sub_resource type="Environment" id="Environment_yyuqk"]
-background_mode = 2
-sky = SubResource("Sky_2gruq")
-tonemap_mode = 2
+[ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="2_qjig3"]
 
 [node name="TestInfinity" type="Node3D"]
 
 [node name="InBetweenWaves" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 10.0
 one_shot = true
 autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_yyuqk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
@@ -36,33 +23,33 @@ fov = 53.4375
 
 [node name="Player" parent="." instance=ExtResource("1_d7tgc")]
 
-[node name="SpawnHolder" type="Node3D" parent="." node_paths=PackedStringArray("timer")]
+[node name="SpawnHolder" type="Node3D" parent="." node_paths=PackedStringArray("waves_timer")]
 script = ExtResource("2_qjig3")
-timer = NodePath("../InBetweenWaves")
+waves_timer = NodePath("../InBetweenWaves")
 
 [node name="Spawner5" type="Node3D" parent="SpawnHolder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.53557, -18.4748)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.87065, -13.1474)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0479851)
 
 [node name="Spawner4" type="Node3D" parent="SpawnHolder"]
-transform = Transform3D(0.744845, 0, 0, 0, 0.744845, 0, 0, 0, 0.744845, 0, 1.7755, -18.5228)
+transform = Transform3D(0.744845, 0, 0, 0, 0.744845, 0, 0, 0, 0.744845, 0, 2.66183, -12.8846)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner4"]
 
 [node name="Spawner1" type="Node3D" parent="SpawnHolder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.31106, -15.1157)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.34029, -12.4491)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner1"]
 
 [node name="Spawner2" type="Node3D" parent="SpawnHolder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0871139, -15.5461)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0871139, -12.3902)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner2"]
 
 [node name="Spawner3" type="Node3D" parent="SpawnHolder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.59644, -15.1822)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.23192, -12.7036)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner3"]
 
