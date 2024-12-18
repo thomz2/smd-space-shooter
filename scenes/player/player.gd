@@ -36,15 +36,21 @@ var can_shoot : bool = true
 
 func _ready() -> void:
 	super()
-	var timer = Timer.new()
-	timer.one_shot = true
-	timer.wait_time = fire_rate
-	timer.name = "ShootTimer"
-	add_child(timer)
-	timer.timeout.connect(_on_shoot_timer_timeout)
+	
+	health_changed.connect(_on_health_changed)
+	
+	var shoot_timer = Timer.new()
+	shoot_timer.one_shot = true
+	shoot_timer.wait_time = fire_rate
+	shoot_timer.name = "ShootTimer"
+	add_child(shoot_timer)
+	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 
 func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
+
+func _on_health_changed(_amount) -> void:
+	$CollisionSFX.play()
 
 func shoot_bullet() -> void:
 	$ShootinSFX.play()
