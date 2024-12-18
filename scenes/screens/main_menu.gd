@@ -8,6 +8,7 @@ extends Node3D
 @onready var player_target = $PlayerTarget
 
 func _ready() -> void:
+	AudioManager.play_music("background.mp3")
 	$BtnPlay.pressed.connect(_on_btn_play_pressed)
 	
 	# this makes the button focused / selected. Z or Enter or Space should press it.
