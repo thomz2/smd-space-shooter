@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvya6ox4fom6q"]
+[gd_scene load_steps=21 format=3 uid="uid://cvya6ox4fom6q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl27y"]
 [ext_resource type="ArrayMesh" uid="uid://pou5tpidnnbv" path="res://assets/kenney_spaceships/craft_speederC.obj" id="2_bktko"]
@@ -8,12 +8,62 @@
 [ext_resource type="AudioStream" uid="uid://7lri4q7ovoiw" path="res://assets/SFX/421704__bolkmar__sfx-laser-shoot-02.wav" id="6_cwonh"]
 [ext_resource type="AudioStream" uid="uid://bsfg356yv2rq2" path="res://assets/SFX/dodgeSFX.wav" id="7_xi4m2"]
 [ext_resource type="AudioStream" uid="uid://b0lg1i4w7c6p1" path="res://assets/SFX/collision.ogg" id="8_5vhk2"]
+[ext_resource type="Texture2D" uid="uid://c4wcge8jw5keh" path="res://assets/icons8/icons8-hexagon-96.png" id="9_hnebt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsnyb"]
 size = Vector3(2.15039, 0.561646, 1.62308)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0rek0"]
 radius = 1.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sywdc"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+specular_mode = 2
+disable_ambient_light = true
+disable_fog = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("9_hnebt")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_22jjx"]
+_data = [Vector2(0.286822, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4q01u"]
+curve = SubResource("Curve_22jjx")
+
+[sub_resource type="Gradient" id="Gradient_53acf"]
+offsets = PackedFloat32Array(0.234783, 0.852174)
+colors = PackedColorArray(1, 1, 1, 1, 20, 20, 20, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h6j71"]
+gradient = SubResource("Gradient_53acf")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_jikn6"]
+_data = [Vector2(0, 0), 0.0, 3.31169, 0, 0, Vector2(0.445736, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_o7m4g"]
+curve = SubResource("Curve_jikn6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vungs"]
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_o7m4g")
+color_ramp = SubResource("GradientTexture1D_h6j71")
+alpha_curve = SubResource("CurveTexture_4q01u")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_rx3s1"]
+size = Vector2(1, 1)
+orientation = 2
 
 [node name="Player" type="CharacterBody3D" groups=["PLAYER"]]
 collision_layer = 2
@@ -54,3 +104,13 @@ max_db = 6.0
 
 [node name="CollisionSFX" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("8_5vhk2")
+
+[node name="ReflectParticle" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_sywdc")
+emitting = false
+amount = 3
+lifetime = 0.3
+one_shot = true
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_vungs")
+draw_pass_1 = SubResource("PlaneMesh_rx3s1")

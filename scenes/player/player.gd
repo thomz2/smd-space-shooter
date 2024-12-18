@@ -13,13 +13,18 @@ var accel : float = 50.0
 ## If negative, the player is not dodging
 var dodge_timer : float = 0.0
 
+## If positive, player is invincible (and is_invincible is set)
+var invincibility_timer : float = 0.0
+
 var is_invincible : bool = false :
 	set(value):
+		if value == is_invincible: return #update only if needed
 		is_invincible = value
 		if value: #disable collisions for player
 			set_collision_layer_value(2, false)
 		else:
 			set_collision_layer_value(2, true)
+		
 
 ## What bullet to spawn when shoot button is pressed.
 @export var packed_bullet : PackedScene
@@ -50,6 +55,7 @@ func _on_shoot_timer_timeout() -> void:
 	can_shoot = true
 
 func _on_health_changed(_amount) -> void:
+	invincibility_timer = 1.0
 	$CollisionSFX.play()
 
 func shoot_bullet() -> void:
@@ -61,16 +67,18 @@ func shoot_bullet() -> void:
 
 func dodge() -> void:
 	$DodgingSFX.play()
-	dodge_timer = 0.5
-	var active_reflect_timer = 0.3
+	$ReflectParticle.restart()
+	dodge_timer = 0.8
+	invincibility_timer = 0.3
+	var active_reflect_timer = 0.4
 	
 	var rotation_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	rotation_tween.tween_property(self, "rotation_degrees:z", 360, dodge_timer).from(0)
 	
-	var invincibility_tween = create_tween()
-	invincibility_tween.tween_property(self, "is_invincible", true, 0)
-	invincibility_tween.tween_interval(active_reflect_timer)
-	invincibility_tween.tween_property(self, "is_invincible", false, 0)
+	#var invincibility_tween = create_tween()
+	#invincibility_tween.tween_property(self, "invincibility_timer", 0.6, 0)
+	#invincibility_tween.tween_interval(active_reflect_timer)
+	#invincibility_tween.tween_property(self, "invincibility_timer", 0.0, 0)
 	
 	var reflect_tween = create_tween()
 	reflect_tween.tween_property(reflector, "disabled", false, 0)
@@ -100,6 +108,12 @@ func _physics_process(delta: float) -> void:
 		can_shoot = false
 		$ShootTimer.start()
 	
+	if invincibility_timer >= 0:
+		is_invincible = true
+		invincibility_timer -= delta
+	else:
+		is_invincible = false
+	print_debug(invincibility_timer, is_invincible)
 	if dodge_timer > 0: 
 		dodge_timer -= delta
 		#if dodge_timer <= 0: #trying on tweeners for now

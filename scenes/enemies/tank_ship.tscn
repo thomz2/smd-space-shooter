@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dys00akjctl5x"]
+[gd_scene load_steps=14 format=3 uid="uid://dys00akjctl5x"]
 
 [ext_resource type="Script" path="res://scenes/enemies/tank_ship.gd" id="1_w75s0"]
 [ext_resource type="PackedScene" uid="uid://bx2881k3kdy35" path="res://scenes/enemies/tank_ship_bullet.tscn" id="2_omcxv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_bullet_spawner.gd" id="4_xd7et"]
 [ext_resource type="PackedScene" uid="uid://cga4v1pg77y3o" path="res://scenes/enemies/generic_bullet.tscn" id="5_2l2y0"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="7_johcl"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_leave_screen_despawn.gd" id="8_s5x3w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4dqk"]
 size = Vector3(1, 1.07199, 3.53087)
@@ -71,3 +72,6 @@ hit_both_override = true
 [node name="OnDeathAwardPoints" type="Node" parent="."]
 script = ExtResource("7_johcl")
 score = 1000
+
+[node name="OnLeaveScreenDespawn" type="VisibleOnScreenNotifier3D" parent="."]
+script = ExtResource("8_s5x3w")
