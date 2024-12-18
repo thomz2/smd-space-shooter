@@ -9,6 +9,8 @@ extends Node3D
 ## The bullet to spawn; Scene of type Bullet3D
 @export var packed_bullet : PackedScene
 
+
+
 ## How many bullets does this node spawn?
 @export var amount_to_spawn : int = 4
 
@@ -20,6 +22,11 @@ extends Node3D
 ## Keep it to -1 to not override.
 @export var initial_speed_override : float = -1
 
+## New damage value for the bullet's main hitbox
+@export var damage_override : float = -1
+
+## If the spawned bullet should also damage enemies as well as players.
+@export var hit_both_override : bool = false
 
 func _ready() -> void:
 	if owner is CombatCharacter3D:
@@ -46,5 +53,10 @@ func spawn_bullets() -> void:
 		#set position and rotation
 		bullet.global_position = self.global_position
 		bullet.rotate_x(deg_to_rad(current_angle_degrees))
+		
+		for child in bullet.get_children():
+			if child is Hitbox3D:
+				if hit_both_override: child.target_type = Hitbox3D.TargetType.BOTH
+				if damage_override != -1: child.damage = damage_override
 		
 		current_angle_degrees += angle_step_degrees

@@ -23,3 +23,6 @@ func _reflect_bullet(bullet:Bullet3D) -> void:
 	for child in bullet.get_children():
 		if child is Hitbox3D:
 			child.target_type = Hitbox3D.TargetType.ENEMY
+	#funky componentization
+	if bullet.has_method("on_reflected"):
+		bullet.call("on_reflected")

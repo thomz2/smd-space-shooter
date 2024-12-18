@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpg77mlpmubse"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7jj1"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 0, 0, 0.552941)
+
+[sub_resource type="Curve" id="Curve_hxa8g"]
+_data = [Vector2(0, 1), 0.0, -2.62756, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dil8b"]
+curve = SubResource("Curve_hxa8g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f106u"]
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_dil8b")
+
+[sub_resource type="SphereMesh" id="SphereMesh_rw0gu"]
+
+[node name="TankShipParticle" type="GPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_e7jj1")
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_f106u")
+draw_pass_1 = SubResource("SphereMesh_rw0gu")

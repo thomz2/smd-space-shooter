@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://bx2881k3kdy35"]
+
+[ext_resource type="Script" path="res://scenes/enemies/tank_ship_bullet.gd" id="1_m671s"]
+[ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="2_f40u1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mh6ro"]
+size = Vector3(1.4, 0.4, 0.7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ls01k"]
+size = Vector3(1.5, 1.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iniqv"]
+albedo_color = Color(1, 0.335514, 0.269596, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_us7td"]
+material = SubResource("StandardMaterial3D_iniqv")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xh5gj"]
+material = SubResource("StandardMaterial3D_iniqv")
+
+[sub_resource type="Animation" id="Animation_qho76"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ModelOrigin:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pokvt"]
+resource_name = "spinning"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ModelOrigin:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 6.28319)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t32bo"]
+_data = {
+"RESET": SubResource("Animation_qho76"),
+"spinning": SubResource("Animation_pokvt")
+}
+
+[node name="EnemyShipBullet" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_m671s")
+initial_speed = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("BoxShape3D_mh6ro")
+
+[node name="Hitbox3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("2_f40u1")
+target_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0105896)
+shape = SubResource("BoxShape3D_ls01k")
+
+[node name="ModelOrigin" type="Node3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ModelOrigin"]
+transform = Transform3D(0.270507, 0, 0, 0, -1.18242e-08, 0.270507, 0, -0.270507, -1.18242e-08, 0.4, 0, 0)
+mesh = SubResource("CapsuleMesh_us7td")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ModelOrigin"]
+transform = Transform3D(0.270507, 0, 0, 0, -1.18242e-08, 0.270507, 0, -0.270507, -1.18242e-08, -0.4, 0, 0)
+mesh = SubResource("CapsuleMesh_xh5gj")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t32bo")
+}
+autoplay = "spinning"

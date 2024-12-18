@@ -5,13 +5,12 @@ extends CombatCharacter3D
 @export var packed_bullet : PackedScene = preload("res://scenes/enemies/enemy_ship_bullet.tscn")
 
 
-
 func _ready() -> void:
 	super()
 	$ShootTimer.timeout.connect(self.shoot)
 
 func _physics_process(delta: float) -> void:
-	velocity = -global_basis.z * 1.5
+	velocity = -global_basis.z * 2
 	move_and_slide()
 
 func shoot():

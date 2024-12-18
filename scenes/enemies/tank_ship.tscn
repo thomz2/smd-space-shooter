@@ -1,26 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://dys00akjctl5x"]
+[gd_scene load_steps=13 format=3 uid="uid://dys00akjctl5x"]
 
 [ext_resource type="Script" path="res://scenes/enemies/tank_ship.gd" id="1_w75s0"]
-[ext_resource type="ArrayMesh" uid="uid://ca63otsguhx07" path="res://assets/kenney_spaceships/monorail_trainFront.obj" id="2_qqhfp"]
+[ext_resource type="PackedScene" uid="uid://bx2881k3kdy35" path="res://scenes/enemies/tank_ship_bullet.tscn" id="2_omcxv"]
+[ext_resource type="ArrayMesh" uid="uid://dbxc4vp51l1c2" path="res://assets/kenney_spaceships/craft_cargoB.obj" id="2_pirqj"]
+[ext_resource type="PackedScene" uid="uid://dpg77mlpmubse" path="res://scenes/enemies/tank_ship_particle.tscn" id="3_7p12y"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_death_bullet_spawner.gd" id="4_xd7et"]
+[ext_resource type="PackedScene" uid="uid://cga4v1pg77y3o" path="res://scenes/enemies/generic_bullet.tscn" id="5_2l2y0"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="7_johcl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4dqk"]
-size = Vector3(1, 1.32977, 1.79926)
+size = Vector3(1, 1.07199, 3.53087)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fhp8"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(1, 0, 0, 0.643137)
+
+[sub_resource type="Curve" id="Curve_qfkby"]
+_data = [Vector2(0, 1), 0.0, -2.62756, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bh01n"]
+curve = SubResource("Curve_qfkby")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u47d1"]
+gravity = Vector3(0, 0, 0)
+attractor_interaction_enabled = false
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_bh01n")
 
 [node name="TankShip" type="CharacterBody3D"]
+transform = Transform3D(0.734188, 0, 0, 0, 0.734188, 0, 0, 0, 0.734188, 0, 0, 0)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_w75s0")
+packed_bullet = ExtResource("2_omcxv")
 max_health = 150.0
 
+[node name="ShootOrigin" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.85186)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.249298, 0.0154727)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.120408, 0.0283582)
 shape = SubResource("BoxShape3D_p4dqk")
 
 [node name="CraftCargoA" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.62908, 0, -1.42419e-07, 0, 1.62908, 0, 1.42419e-07, 0, -1.62908, 0, -0.399677, 0)
-mesh = ExtResource("2_qqhfp")
+transform = Transform3D(-1.20442, 0, -1.05294e-07, 0, 1.20442, 0, 1.05294e-07, 0, -1.20442, 0, -0.399677, 0)
+mesh = ExtResource("2_pirqj")
 
 [node name="ShootTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 0.2
 autostart = true
+
+[node name="ChargeParticle" parent="." instance=ExtResource("3_7p12y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.85824)
+material_override = SubResource("StandardMaterial3D_2fhp8")
+emitting = true
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_u47d1")
+
+[node name="OnDeathBulletSpawner" type="Node3D" parent="."]
+script = ExtResource("4_xd7et")
+packed_bullet = ExtResource("5_2l2y0")
+amount_to_spawn = 8
+initial_speed_override = 5.0
+damage_override = 20.0
+hit_both_override = true
+
+[node name="OnDeathAwardPoints" type="Node" parent="."]
+script = ExtResource("7_johcl")
+score = 1000
