@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scenes/screens/main_menu.gd" id="1_es5ga"]
 [ext_resource type="ArrayMesh" uid="uid://dkd8hw6c0wt0n" path="res://assets/kenney_spaceships/craft_speederA.obj" id="1_ix8oe"]
-[ext_resource type="Environment" uid="uid://bo2ixjnkdo2cj" path="res://assets/resources/environment_space.tres" id="2_kirwq"]
+[ext_resource type="Environment" uid="uid://dmky6ixl1xvdh" path="res://assets/resources/space_environment.tres" id="2_l2sli"]
 
 [node name="MainMenu" type="Node3D"]
 transform = Transform3D(1, 0.000381121, -2.96111e-05, -0.000381114, 1, 0.000210377, 2.97115e-05, -0.000210363, 1, 0, 0, 0)
 script = ExtResource("1_es5ga")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("2_kirwq")
+environment = ExtResource("2_l2sli")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
