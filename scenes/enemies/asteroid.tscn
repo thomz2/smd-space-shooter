@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://030jn1smum0a"]
+[gd_scene load_steps=8 format=3 uid="uid://030jn1smum0a"]
 
 [ext_resource type="Script" path="res://scenes/enemies/asteroid.gd" id="1_iamhl"]
 [ext_resource type="ArrayMesh" uid="uid://bpqyfuwyrmuhu" path="res://assets/kenney_spaceships/meteor_detailed.obj" id="2_npsw0"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_or822"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="4_ffckt"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_leave_screen_despawn.gd" id="5_4ws5f"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5f4vk"]
 radius = 0.4549
@@ -39,3 +40,6 @@ skeleton = NodePath("../..")
 
 [node name="OnDeathAwardPoints" type="Node" parent="."]
 script = ExtResource("4_ffckt")
+
+[node name="OnLeaveScreenDespawn" type="VisibleOnScreenNotifier3D" parent="."]
+script = ExtResource("5_4ws5f")
