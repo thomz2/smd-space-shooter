@@ -20,7 +20,7 @@ func _physics_process(_delta: float) -> void:
 
 func shoot():
 	var bullet : Bullet3D = packed_bullet.instantiate()
-	bullet.initial_speed = 4
+	bullet.initial_speed = 5
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
 	bullet.global_rotation = self.global_rotation

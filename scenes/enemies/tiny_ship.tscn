@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqddpw6jduexh"]
+[gd_scene load_steps=10 format=3 uid="uid://bqddpw6jduexh"]
 
 [ext_resource type="Script" path="res://scenes/enemies/tiny_ship.gd" id="1_3qv2x"]
 [ext_resource type="ArrayMesh" uid="uid://bols2sg286ig8" path="res://assets/kenney_spaceships/craft_speederB.obj" id="2_8a6ev"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_bullet_spawner.gd" id="3_4h7nf"]
+[ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_yr1lm"]
 [ext_resource type="PackedScene" uid="uid://cga4v1pg77y3o" path="res://scenes/enemies/generic_bullet.tscn" id="4_560ol"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="5_3h8vm"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_leave_screen_despawn.gd" id="6_adtqp"]
@@ -10,10 +11,14 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4dqk"]
 size = Vector3(0.704529, 0.406417, 0.678572)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_x5iyy"]
+radius = 0.160847
+
 [node name="TinyShip" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_3qv2x")
+max_health = 30.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00112915, -0.00305989, -0.0187396)
@@ -25,8 +30,19 @@ mesh = ExtResource("2_8a6ev")
 
 [node name="ShootTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 0.4
+wait_time = 0.2
 autostart = true
+
+[node name="Hitbox3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_yr1lm")
+target_type = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0381957, -0.021634)
+shape = SubResource("SphereShape3D_x5iyy")
 
 [node name="OnDeathBulletSpawner" type="Node3D" parent="."]
 script = ExtResource("3_4h7nf")

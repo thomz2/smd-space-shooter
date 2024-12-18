@@ -3,4 +3,4 @@ extends Bullet3D
 
 
 func on_reflected() -> void:
-	main_hitbox.damage = 40
+	main_hitbox.damage = 50

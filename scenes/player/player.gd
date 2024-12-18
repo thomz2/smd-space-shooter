@@ -63,17 +63,18 @@ func shoot_bullet() -> void:
 	var bullet : Bullet3D = packed_bullet.instantiate()
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
+	bullet.rotate_x(self.rotation.x)
 	#bullet.global_rotation = self.global_rotation
 
 func dodge() -> void:
 	$DodgingSFX.play()
 	$ReflectParticle.restart()
 	dodge_timer = 0.8
-	invincibility_timer = 0.3
+	invincibility_timer = 0.5
 	var active_reflect_timer = 0.4
 	
 	var rotation_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
-	rotation_tween.tween_property(self, "rotation_degrees:z", 360, dodge_timer).from(0)
+	rotation_tween.tween_property(self, "rotation_degrees:z", 360, dodge_timer+0.1).from(0)
 	
 	#var invincibility_tween = create_tween()
 	#invincibility_tween.tween_property(self, "invincibility_timer", 0.6, 0)
@@ -92,6 +93,8 @@ func _physics_process(delta: float) -> void:
 	var input_direction := Input.get_vector("ui_left", "ui_right", "ui_down", "ui_up")
 	if input_direction != Vector2.ZERO: 
 		input_direction = input_direction.normalized()
+	
+	if dodge_timer > 0.6: input_direction *= 2.0 #buff move speed on dodge
 	
 	# to move the ship, we first modify its velocity, then call move_and_slide().
 	# move_and_slide() already multiplies velocity by delta time.
@@ -113,7 +116,7 @@ func _physics_process(delta: float) -> void:
 		invincibility_timer -= delta
 	else:
 		is_invincible = false
-	print_debug(invincibility_timer, is_invincible)
+	#print_debug(invincibility_timer, is_invincible)
 	if dodge_timer > 0: 
 		dodge_timer -= delta
 		#if dodge_timer <= 0: #trying on tweeners for now
