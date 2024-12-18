@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://blutrpxa4jgw8"]
+[gd_scene load_steps=5 format=3 uid="uid://blutrpxa4jgw8"]
 
+[ext_resource type="Environment" uid="uid://dmky6ixl1xvdh" path="res://assets/resources/space_environment.tres" id="1_7lg4x"]
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="1_d7tgc"]
+[ext_resource type="Script" path="res://scripts/skybox_rotation.gd" id="2_psal4"]
 [ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="2_qjig3"]
 
 [node name="TestInfinity" type="Node3D"]
@@ -11,6 +13,8 @@ one_shot = true
 autostart = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_7lg4x")
+script = ExtResource("2_psal4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
