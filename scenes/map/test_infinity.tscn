@@ -36,6 +36,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.87065, -13.1474)
 [node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0479851)
 
+[node name="Spawner6" type="Node3D" parent="SpawnHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.40738, -12.4478)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0479851)
+
+[node name="Spawner7" type="Node3D" parent="SpawnHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.01924, -12.4478)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0479851)
+
+[node name="Spawner8" type="Node3D" parent="SpawnHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21509, -12.4478)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0479851)
+
+[node name="Spawner9" type="Node3D" parent="SpawnHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.95756, -13.4718)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SpawnHolder/Spawner9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0479851)
+
 [node name="Spawner4" type="Node3D" parent="SpawnHolder"]
 transform = Transform3D(0.744845, 0, 0, 0, 0.744845, 0, 0, 0, 0.744845, 0, 2.66183, -12.8846)
 

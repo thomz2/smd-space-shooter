@@ -13,14 +13,14 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	velocity = -global_basis.z * 6
+	velocity = -global_basis.z * 9
 	velocity.y += sin(4 * Time.get_ticks_msec()/1000.0) * 3
 	move_and_slide()
 
 
 func shoot():
 	var bullet : Bullet3D = packed_bullet.instantiate()
-	bullet.initial_speed = 10
+	bullet.initial_speed = 4
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
 	bullet.global_rotation = self.global_rotation

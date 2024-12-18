@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://buuemm8nn8my1"]
+[gd_scene load_steps=7 format=3 uid="uid://bqddpw6jduexh"]
 
 [ext_resource type="Script" path="res://scenes/enemies/tiny_ship.gd" id="1_3qv2x"]
 [ext_resource type="ArrayMesh" uid="uid://bols2sg286ig8" path="res://assets/kenney_spaceships/craft_speederB.obj" id="2_8a6ev"]
@@ -24,13 +24,13 @@ mesh = ExtResource("2_8a6ev")
 
 [node name="ShootTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 0.15
+wait_time = 0.4
 autostart = true
 
 [node name="OnDeathBulletSpawner" type="Node3D" parent="."]
 script = ExtResource("3_4h7nf")
 packed_bullet = ExtResource("4_560ol")
-amount_to_spawn = 8
+amount_to_spawn = 0
 initial_speed_override = 5.0
 damage_override = 20.0
 hit_both_override = true

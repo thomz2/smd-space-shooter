@@ -16,7 +16,7 @@ material = SubResource("StandardMaterial3D_w2mdf")
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_vtwr2")
-initial_speed = 30.0
+initial_speed = 8.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 visible = false
