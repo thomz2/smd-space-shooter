@@ -28,7 +28,7 @@ func _ready():
 
 
 func get_dificulty(level):
-	return abs(level * 1.5) + 5
+	return ceil(level * 1.7) + 5
 
 
 func get_random_monster():
