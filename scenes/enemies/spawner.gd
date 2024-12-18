@@ -28,7 +28,7 @@ func _ready():
 
 
 func get_dificulty(level):
-	return level * 2 + 5
+	return abs(level * 1.5) + 5
 
 
 func get_random_monster():
@@ -36,6 +36,8 @@ func get_random_monster():
 	
 	if current_level < 10:
 		possible_keys.append("asteroid")
+		#possible_keys.append("tank_ship")
+		#possible_keys.append("tiny_ship")
 	
 	if current_level >= 2:
 		possible_keys.append("enemy_ship")
