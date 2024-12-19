@@ -1,17 +1,15 @@
 extends Node3D
 
-#essetially just a counter
 @onready var current_level=0
 
-#the monster we will be spawning in. 
 @onready var monsters = {
-	'asteroid': preload("res://scenes/enemies/asteroid.tscn"),
+	'asteroid':   preload("res://scenes/enemies/asteroid.tscn"),
 	'enemy_ship': preload("res://scenes/enemies/enemy_ship.tscn"),
-	'tiny_ship': preload("res://scenes/enemies/tiny_ship.tscn"),
-	'tank_ship': preload("res://scenes/enemies/tank_ship.tscn")
+	'tiny_ship':  preload("res://scenes/enemies/tiny_ship.tscn"),
+	'tank_ship':  preload("res://scenes/enemies/tank_ship.tscn")
 }
-#A random number generator to spawn from alternating spawn points.
-@onready var rand=RandomNumberGenerator.new()
+
+@onready var rand = RandomNumberGenerator.new()
 @onready var dead_enemies = 0
 @onready var current_enemy_count = 0
 
