@@ -74,10 +74,10 @@ text = "PLAY"
 [node name="Player" parent="." instance=ExtResource("4_xj2e0")]
 transform = Transform3D(1, -0.000381115, 2.96913e-05, 0.00038112, 1, -0.000210366, -2.96313e-05, 0.000210374, 1, -1.85822, 0.296225, 5.31365)
 
-[node name="HeadsUpDisplay" parent="Player" index="3"]
+[node name="HeadsUpDisplay" parent="Player" index="4"]
 visible = false
 
-[node name="ShootinSFX" parent="Player" index="4"]
+[node name="ShootinSFX" parent="Player" index="5"]
 visible = false
 volume_db = -50.0
 

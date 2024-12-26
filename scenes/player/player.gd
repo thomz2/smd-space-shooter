@@ -33,9 +33,6 @@ var is_invincible : bool = false :
 ## The game over popup.
 var packed_game_over : PackedScene = preload("res://scenes/screens/game_over_popup.tscn")
 
-@export var fire_rate = 0.09
-var can_shoot : bool = true
-
 @onready var model = $Model
 @onready var reflector = $PlayerBulletReflectorArea3D
 
@@ -43,28 +40,12 @@ func _ready() -> void:
 	super()
 	
 	health_changed.connect(_on_health_changed)
-	
-	var shoot_timer = Timer.new()
-	shoot_timer.one_shot = true
-	shoot_timer.wait_time = fire_rate
-	shoot_timer.name = "ShootTimer"
-	add_child(shoot_timer)
-	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 
-func _on_shoot_timer_timeout() -> void:
-	can_shoot = true
+
 
 func _on_health_changed(_amount) -> void:
 	invincibility_timer = 1.0
 	$CollisionSFX.play()
-
-func shoot_bullet() -> void:
-	$ShootinSFX.play()
-	var bullet : Bullet3D = packed_bullet.instantiate()
-	get_tree().current_scene.add_child(bullet)
-	bullet.global_position = self.global_position
-	bullet.rotate_x(self.rotation.x)
-	#bullet.global_rotation = self.global_rotation
 
 func dodge() -> void:
 	$DodgingSFX.play()
@@ -104,12 +85,6 @@ func _physics_process(delta: float) -> void:
 	
 	# rotation effect for the model
 	rotation_degrees.x = clamp(velocity.y * 2, -30, 30)
-	
-	#if Input.is_action_just_pressed("shoot"):
-	if Input.is_action_pressed("shoot") and can_shoot and dodge_timer <= 0:
-		shoot_bullet()
-		can_shoot = false
-		$ShootTimer.start()
 	
 	if invincibility_timer >= 0:
 		is_invincible = true
