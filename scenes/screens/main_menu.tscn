@@ -77,10 +77,6 @@ transform = Transform3D(1, -0.000381115, 2.96913e-05, 0.00038112, 1, -0.00021036
 [node name="HeadsUpDisplay" parent="Player" index="4"]
 visible = false
 
-[node name="ShootinSFX" parent="Player" index="5"]
-visible = false
-volume_db = -50.0
-
 [node name="PlayerTarget" type="Marker3D" parent="."]
 transform = Transform3D(1, -1.63245e-10, 1.09139e-11, 7.04592e-12, 1, 0, -1.09139e-11, 0, 1, -1.81153, 0.389235, -0.300709)
 

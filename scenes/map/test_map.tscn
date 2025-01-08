@@ -4,7 +4,7 @@
 [ext_resource type="Environment" uid="uid://dmky6ixl1xvdh" path="res://assets/resources/space_environment.tres" id="1_u7nfm"]
 [ext_resource type="PackedScene" uid="uid://030jn1smum0a" path="res://scenes/enemies/asteroid.tscn" id="2_meryx"]
 [ext_resource type="PackedScene" uid="uid://cga4v1pg77y3o" path="res://scenes/enemies/generic_bullet.tscn" id="4_b26ht"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/tank_ship.tscn" id="4_l06dk"]
+[ext_resource type="PackedScene" uid="uid://dys00akjctl5x" path="res://scenes/enemies/tank_ship.tscn" id="4_l06dk"]
 [ext_resource type="PackedScene" uid="uid://bqddpw6jduexh" path="res://scenes/enemies/tiny_ship.tscn" id="5_5yqa5"]
 [ext_resource type="PackedScene" uid="uid://bkudow7s0253u" path="res://scenes/enemies/enemy_ship.tscn" id="6_5hdfl"]
 
