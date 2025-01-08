@@ -20,7 +20,7 @@ func play_music(music_file:String, audio_bus:String = "MUSIC"):
 	music_player.stop()
 	music_player.stream = load(sound_path)
 	music_player.bus = audio_bus
-	music_player.volume_db = -10
+	music_player.volume_db = -6
 	music_player.play()
 
 func stop_music():
