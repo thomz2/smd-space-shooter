@@ -23,6 +23,21 @@ func _reflect_bullet(bullet:Bullet3D) -> void:
 	for child in bullet.get_children():
 		if child is Hitbox3D:
 			child.target_type = Hitbox3D.TargetType.ENEMY
+		if child is MeshInstance3D:
+			var mesh_instance : MeshInstance3D = child
+			if mesh_instance.mesh:
+				if mesh_instance.mesh is CapsuleMesh:
+					mesh_instance.mesh.material = mesh_instance.mesh.material.duplicate(true)
+					mesh_instance.mesh.material.albedo_color = Color(0, 1, 1)
+				else:
+					var material = mesh_instance.mesh.surface_get_material(0)
+					if material:
+						var new_material = material.duplicate(true)
+						mesh_instance.mesh.surface_set_material(0, new_material)
+						new_material.albedo_color = Color(0, 1, 1)
+			else:
+				print("nenhum mesh atribuido")
+
 	#funky componentization
 	if bullet.has_method("on_reflected"):
 		bullet.call("on_reflected")

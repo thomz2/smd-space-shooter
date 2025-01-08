@@ -27,3 +27,11 @@ func gain_score(value) -> void:
 func reset_level() -> void:
 	score = 0
 	get_tree().reload_current_scene()
+
+
+
+func shake_camera(strength:float) -> void:
+	var camera : Camera3D = get_viewport().get_camera_3d()
+	for child in camera.get_children():
+		if child is Camera3DShaker:
+			child.apply_random_shake(strength)

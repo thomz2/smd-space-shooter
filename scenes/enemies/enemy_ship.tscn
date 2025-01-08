@@ -26,7 +26,7 @@ mesh = ExtResource("2_tco0o")
 
 [node name="ShootTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 1.2
+wait_time = 2.168
 autostart = true
 
 [node name="OnDeathBulletSpawner" type="Node3D" parent="."]

@@ -10,6 +10,7 @@ size = Vector3(1.4, 0.4, 0.7)
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_c47hh"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_w2mdf")
 
 [node name="EnemyShipBullet" type="CharacterBody3D"]

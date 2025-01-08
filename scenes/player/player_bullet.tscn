@@ -7,6 +7,7 @@
 albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8qqqo"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_xo56r")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxvkb"]

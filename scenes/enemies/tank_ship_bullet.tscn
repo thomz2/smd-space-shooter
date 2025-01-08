@@ -13,9 +13,11 @@ size = Vector3(1.5, 1.5, 1)
 albedo_color = Color(1, 0.335514, 0.269596, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_us7td"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_iniqv")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xh5gj"]
+resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_iniqv")
 
 [sub_resource type="Animation" id="Animation_qho76"]
