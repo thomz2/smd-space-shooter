@@ -44,6 +44,7 @@ func _ready() -> void:
 
 
 func _on_health_changed(_amount) -> void:
+	GameManager.shake_camera(0.5)
 	invincibility_timer = 1.0
 	$CollisionSFX.play()
 

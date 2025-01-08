@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://blutrpxa4jgw8"]
+[gd_scene load_steps=9 format=3 uid="uid://blutrpxa4jgw8"]
 
 [ext_resource type="Environment" uid="uid://dmky6ixl1xvdh" path="res://assets/resources/space_environment.tres" id="1_7lg4x"]
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="1_d7tgc"]
 [ext_resource type="Script" path="res://scripts/skybox_rotation.gd" id="2_psal4"]
 [ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="2_qjig3"]
+[ext_resource type="Script" path="res://scripts/camera_3d_shaker.gd" id="3_sai3f"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_0lhwo"]
 
@@ -29,6 +30,9 @@ shadow_enabled = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.224, 0, 0)
 current = true
 fov = 53.4375
+
+[node name="Camera3DShaker" type="Node" parent="Camera3D"]
+script = ExtResource("3_sai3f")
 
 [node name="Player" parent="." instance=ExtResource("1_d7tgc")]
 
