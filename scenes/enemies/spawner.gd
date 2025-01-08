@@ -37,7 +37,7 @@ func get_random_monster():
 		
 		# DEBUG:
 		#possible_keys.append("enemy_ship")
-		possible_keys.append("tank_ship")
+		#possible_keys.append("tank_ship")
 		#possible_keys.append("tiny_ship")
 	
 	if current_level >= 2:
