@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 
 signal killed
-signal health_changed(new_amount:float)
+signal health_changed(new_amount:float, delta:float)
 
 
 @export var max_health : float = 10.0:
@@ -15,8 +15,9 @@ signal health_changed(new_amount:float)
 var health : float = max_health :
 	set(value): # custom setter function
 		if health <= 0: return # don't process damage if already dead
+		var old_health := health
 		health = clamp(value, 0, max_health)
-		health_changed.emit(health)
+		health_changed.emit(health, value-old_health)
 		if health <= 0:
 			kill()
 
