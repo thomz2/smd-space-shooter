@@ -70,7 +70,7 @@ func spawn_enemies():
 			current_enemy_count = 0
 			can_spawn = false
 		
-		await get_tree().create_timer(0.7).timeout # between spawns
+		await get_tree().create_timer(1.7).timeout # between spawns
   
 func update_level(level):
 	print("its level ", level)

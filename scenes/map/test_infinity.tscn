@@ -2,7 +2,7 @@
 
 [ext_resource type="Environment" uid="uid://dmky6ixl1xvdh" path="res://assets/resources/space_environment.tres" id="1_7lg4x"]
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="1_d7tgc"]
-[ext_resource type="PackedScene" uid="uid://down3vre3e3pi" path="res://scenes/screens/pause_screen.tscn" id="1_lgg3r"]
+[ext_resource type="PackedScene" path="res://scenes/screens/pause_screen.tscn" id="1_lgg3r"]
 [ext_resource type="Script" path="res://scripts/skybox_rotation.gd" id="2_psal4"]
 [ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="2_qjig3"]
 [ext_resource type="Script" path="res://scripts/camera_3d_shaker.gd" id="3_sai3f"]
