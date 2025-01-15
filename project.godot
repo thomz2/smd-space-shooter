@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*res://scripts/singleton/game_manager.gd"
 AudioManager="*res://scripts/singleton/audio_manager.gd"
+SaveManager="*res://scripts/singleton/save_manager.gd"
 
 [global_group]
 
