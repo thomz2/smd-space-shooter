@@ -33,10 +33,10 @@ func get_random_monster():
 	var possible_keys = []
 	
 	if current_level < 10:
-		possible_keys.append("asteroid")
+		#possible_keys.append("asteroid")
 		
 		# DEBUG:
-		#possible_keys.append("enemy_ship")
+		possible_keys.append("enemy_ship")
 		#possible_keys.append("tank_ship")
 		#possible_keys.append("tiny_ship")
 	

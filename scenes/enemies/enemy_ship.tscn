@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkudow7s0253u"]
+[gd_scene load_steps=9 format=3 uid="uid://bkudow7s0253u"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy_ship.gd" id="1_edg3i"]
 [ext_resource type="ArrayMesh" uid="uid://b6rydhk2h8610" path="res://assets/kenney_spaceships/craft_cargoA.obj" id="2_tco0o"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cga4v1pg77y3o" path="res://scenes/enemies/generic_bullet.tscn" id="4_txa0t"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="5_bgxdo"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_leave_screen_despawn.gd" id="6_vihj5"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_death_spawn_collectable.gd" id="7_ydj45"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4dqk"]
 size = Vector3(1, 1, 2.55151)
@@ -43,3 +44,6 @@ score = 300
 
 [node name="OnLeaveScreenDespawn" type="VisibleOnScreenNotifier3D" parent="."]
 script = ExtResource("6_vihj5")
+
+[node name="OnDeathSpawnCollectable" type="Node" parent="."]
+script = ExtResource("7_ydj45")
