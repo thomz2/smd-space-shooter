@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://drmsa2n4ona8r"
+path="res://.godot/imported/m1-ship1.obj-c2d41fe685b16f59bebda5cef227fc0e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/m1-ship1.obj-c2d41fe685b16f59bebda5cef227fc0e.mesh"]
+
+source_file="res://assets/majadroid_spaceships/obj-ships/material-01/m1-ship1.obj"
+dest_files=["res://.godot/imported/m1-ship1.obj-c2d41fe685b16f59bebda5cef227fc0e.mesh", "res://.godot/imported/m1-ship1.obj-c2d41fe685b16f59bebda5cef227fc0e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
