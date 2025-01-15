@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbyy13uph8i1j"]
+
+[ext_resource type="Script" path="res://scenes/player/shot/v_shot.gd" id="1_hyffi"]
+[ext_resource type="PackedScene" uid="uid://cq3pg2mk2yn72" path="res://scenes/player/player_bullet.tscn" id="2_aloq2"]
+
+[node name="VShot" type="Node3D"]
+script = ExtResource("1_hyffi")
+packed_bullet = ExtResource("2_aloq2")

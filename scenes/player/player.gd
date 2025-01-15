@@ -26,15 +26,27 @@ var is_invincible : bool = false :
 			set_collision_layer_value(2, true)
 		
 
-## What bullet to spawn when shoot button is pressed.
-@export var packed_bullet : PackedScene
-# TODO: move this to separate PlayerShooter node
-
 ## The game over popup.
 var packed_game_over : PackedScene = preload("res://scenes/screens/game_over_popup.tscn")
 
 @onready var model = $Model
 @onready var reflector = $PlayerBulletReflectorArea3D
+
+## The current shot component attached to the player
+@export var shot_component : PlayerShotComponent :
+	set(value):
+		# remove old shot components
+		for child in self.get_children():
+			if child is PlayerShotComponent:
+				self.remove_child(child)
+				# if changing to a different shot, delete the old one
+				if value != child: child.queue_free()
+		
+		# add the new shot component
+		shot_component = value
+		self.add_child(value)
+
+
 
 func _ready() -> void:
 	super()

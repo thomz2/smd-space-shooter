@@ -1,9 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cvya6ox4fom6q"]
+[gd_scene load_steps=20 format=3 uid="uid://cvya6ox4fom6q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl27y"]
 [ext_resource type="ArrayMesh" uid="uid://pou5tpidnnbv" path="res://assets/kenney_spaceships/craft_speederC.obj" id="2_bktko"]
-[ext_resource type="PackedScene" uid="uid://cq3pg2mk2yn72" path="res://scenes/player/player_bullet.tscn" id="2_odxub"]
-[ext_resource type="Script" path="res://scenes/player/shot/player_shot_component.gd" id="3_qqrqd"]
+[ext_resource type="PackedScene" uid="uid://c1u5pevchhng3" path="res://scenes/player/shot/basic_shot.tscn" id="2_epu45"]
 [ext_resource type="Script" path="res://scenes/player/player_reflector_area.gd" id="4_p5ua8"]
 [ext_resource type="PackedScene" uid="uid://7wauwjgrekp3" path="res://scenes/player/heads_up_display.tscn" id="5_d8vqi"]
 [ext_resource type="AudioStream" uid="uid://bsfg356yv2rq2" path="res://assets/SFX/dodgeSFX.wav" id="7_xi4m2"]
@@ -65,16 +64,14 @@ alpha_curve = SubResource("CurveTexture_4q01u")
 size = Vector2(1, 1)
 orientation = 2
 
-[node name="Player" type="CharacterBody3D" groups=["PLAYER"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("shot_component") groups=["PLAYER"]]
 collision_layer = 2
 collision_mask = 128
 script = ExtResource("1_tl27y")
-packed_bullet = ExtResource("2_odxub")
+shot_component = NodePath("BasicShot")
 max_health = 100.0
 
-[node name="PlayerShotComponent" type="Node3D" parent="."]
-script = ExtResource("3_qqrqd")
-packed_bullet = ExtResource("2_odxub")
+[node name="BasicShot" parent="." instance=ExtResource("2_epu45")]
 
 [node name="Model" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.276724, 0)
