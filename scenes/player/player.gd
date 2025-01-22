@@ -3,6 +3,8 @@ class_name Player
 extends CombatCharacter3D
 
 
+var stats : PlayerStats = null
+
 ## In spatial units (meters?) per second.
 var move_speed : float = 10.0
 
@@ -49,19 +51,27 @@ var packed_game_over : PackedScene = preload("res://scenes/screens/game_over_pop
 
 
 func _ready() -> void:
-	super()
+	GameManager.player = self
+	#TODO: load stats from save data for meta progression
+	stats = PlayerStats.new()
 	
+	super()
 	health_changed.connect(_on_health_changed)
 
 
 
-func _on_health_changed(_amount, delta) -> void:
-	if delta < 0: #damage
+func _on_health_changed(_amount, delta_health) -> void:
+	if delta_health < 0: #damage
 		GameManager.shake_camera(0.5)
 		invincibility_timer = 1.0
 		$CollisionSFX.play()
 	else: #heal
+		#TODO: play healing sfx
 		pass
+
+func _on_stats_max_health_changed() -> void:
+	max_health = stats.max_health
+	health = stats.max_health
 
 func dodge() -> void:
 	$DodgingSFX.play()
@@ -95,8 +105,10 @@ func _physics_process(delta: float) -> void:
 	
 	# to move the ship, we first modify its velocity, then call move_and_slide().
 	# move_and_slide() already multiplies velocity by delta time.
-	velocity.y = move_toward(velocity.y, move_speed * input_direction.y, delta*accel)
-	velocity.z = move_toward(velocity.z, move_speed * -input_direction.x, delta*accel) # negative z is forwards
+	var final_move_speed = move_speed * stats.get_move_speed_mult()
+	var final_accel = accel * stats.get_move_speed_mult()
+	velocity.y = move_toward(velocity.y, final_move_speed * input_direction.y, delta * final_accel)
+	velocity.z = move_toward(velocity.z, final_move_speed * -input_direction.x, delta * final_accel) # negative z is forwards
 	move_and_slide()
 	
 	# rotation effect for the model

@@ -7,6 +7,8 @@ var high_score : int = 0
 ## Current wave in the stage. Advances by 1 every time an enemy dies.
 var wave : int = 0
 
+## Reference to the player set by the player
+var player : Player = null
 
 ## The player's point score gained throughout the run.
 var score : int = 0 :

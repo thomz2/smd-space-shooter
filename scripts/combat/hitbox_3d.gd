@@ -74,12 +74,16 @@ func _on_body_entered(body:Node3D):
 	if body is CombatCharacter3D:
 		
 		var final_damage = damage
-		## TODO: add player damage scaling from stats
-		if target_type == TargetType.ENEMY: # if bullet is from player, hits enemies
-			damage *= 1#global player damage multiplier
+		if target_type == TargetType.ENEMY: # if bullet is from player, it hits only enemies
+			damage *= _get_player_damage_mult()
 		
 		body.health -= damage
 		
 		if destroy_after_collision and not Engine.is_editor_hint():
 			destroy()
 			destroyed.emit()
+
+
+func _get_player_damage_mult() -> float:
+	if not GameManager.player: return 1.0
+	return GameManager.player.stats.get_damage_mult()
