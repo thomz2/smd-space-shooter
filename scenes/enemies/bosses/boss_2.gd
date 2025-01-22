@@ -24,6 +24,7 @@ func _ready() -> void:
 	
 	
 	#fly into screen
+	await get_tree().physics_frame
 	var target_position = global_position + Vector3.BACK * 10
 	var move_tween = create_tween().set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 	move_tween.tween_property(self, "global_position", target_position, 2.0)

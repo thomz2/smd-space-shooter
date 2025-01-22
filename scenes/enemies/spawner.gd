@@ -9,6 +9,11 @@ extends Node3D
 	'tank_ship':  preload("res://scenes/enemies/tank_ship.tscn")
 }
 
+@onready var bosses = { #TODO: rename bosses
+	'boss_1': preload("res://scenes/enemies/bosses/boss_1.tscn"),
+	'boss_2': preload("res://scenes/enemies/bosses/boss_2.tscn"),
+}
+
 @onready var rand = RandomNumberGenerator.new()
 @onready var dead_enemies = 0
 @onready var current_enemy_count = 0
@@ -49,7 +54,23 @@ func get_random_monster():
 	
 	return monsters[possible_keys.pick_random()]
 
+func get_random_boss():
+	var possible_keys = []
+	
+	if GameManager.wave <= 12:
+		possible_keys.append("boss_1")
+	
+	if GameManager.wave >= 8:
+		possible_keys.append("boss_2")
+	
+	return bosses[possible_keys.pick_random()]
+
+
 func spawn_enemies():
+	if GameManager.wave % 4 == 0: # if multiple of four, spawn boss, exit this behavior
+		spawn_boss()
+		return #don't spawn any enemies
+	
 	var can_spawn = true
 	var max_enemies_on_screen = get_dificulty()
 	while can_spawn:
@@ -72,11 +93,34 @@ func spawn_enemies():
 		
 		await get_tree().create_timer(1.7).timeout # between spawns
   
+
+func spawn_boss():
+	var packed_boss : PackedScene = get_random_boss()
+	
+	var boss_enemy : CombatCharacter3D = packed_boss.instantiate()
+	get_tree().current_scene.add_child(boss_enemy)
+	#set position
+	boss_enemy.global_position = self.get_child(0).global_position #spawner1
+	boss_enemy.global_position.y = 0 #height center
+	boss_enemy.global_position.x = 0 #depth center
+	#connect death signal to advance
+	boss_enemy.killed.connect(self._on_boss_defeated)
+	
+	
+	print_debug("position: ", boss_enemy.global_position)
+
 func update_level(level):
 	print("its level ", level)
 	spawn_enemies()
 
+
 func _on_in_between_waves_timeout():
 	print("Leaving level: ", GameManager.wave)
+	GameManager.wave += 1
+	update_level(GameManager.wave)
+
+
+func _on_boss_defeated():
+	await get_tree().create_timer(3.0).timeout
 	GameManager.wave += 1
 	update_level(GameManager.wave)
