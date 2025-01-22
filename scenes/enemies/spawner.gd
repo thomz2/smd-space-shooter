@@ -20,8 +20,8 @@ extends Node3D
 
 @export var waves_timer : Timer
 
-
 func _ready():
+	GameManager.wave -= 1 # Gambiarra
 	add_to_group("level")
 	waves_timer.timeout.connect(_on_in_between_waves_timeout)
 	
@@ -77,9 +77,9 @@ func spawn_enemies():
 		if current_enemy_count < max_enemies_on_screen: 
 			var monster : CombatCharacter3D = get_random_monster().instantiate()
 			
-			var spawn_length = self.get_child_count()-1 #we check the amount of children on our spawn holder
-			var rand_num = rand.randi_range(0,spawn_length) #then make a random number in that range
-			var spawn_postion = self.get_child(rand_num).global_position #We use that number to randomly select a spawner node position to use 
+			var spawn_length = self.get_child_count()-1 
+			var rand_num = rand.randi_range(0,spawn_length) 
+			var spawn_postion = self.get_child(rand_num).global_position 
 			
 			get_tree().current_scene.add_child(monster)
 			monster.global_position = spawn_postion
