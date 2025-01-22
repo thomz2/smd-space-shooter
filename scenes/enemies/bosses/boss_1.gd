@@ -14,6 +14,9 @@ var active_blaster_id : int = 0
 func _ready() -> void:
 	super()
 	
+	
+	#global position is 0,0,0 for one frame so lets wait a bit
+	await get_tree().physics_frame
 	#fly into screen
 	var target_position = global_position + Vector3.BACK * 10
 	var move_tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
