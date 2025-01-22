@@ -4,6 +4,10 @@ extends Node
 ## The highest point score saved this game session. Not saved to disk.
 var high_score : int = 0
 
+## Current wave in the stage. Advances by 1 every time an enemy dies.
+var wave : int = 0
+
+
 ## The player's point score gained throughout the run.
 var score : int = 0 :
 	set(value):
@@ -26,6 +30,7 @@ func gain_score(value) -> void:
 
 func reset_level() -> void:
 	score = 0
+	wave = 0
 	get_tree().reload_current_scene()
 
 

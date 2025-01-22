@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var current_level=0
+#@onready var current_level=0
 
 @onready var monsters = {
 	'asteroid':   preload("res://scenes/enemies/asteroid.tscn"),
@@ -25,33 +25,33 @@ func _ready():
 	_on_in_between_waves_timeout()
 
 
-func get_dificulty(level):
-	return ceil(level * 1.7) + 5
+func get_dificulty():
+	return ceil(GameManager.wave * 1.7) + 5
 
 
 func get_random_monster():
 	var possible_keys = []
 	
-	if current_level < 10:
-		#possible_keys.append("asteroid")
+	if GameManager.wave < 5:
+		possible_keys.append("asteroid")
 		
 		# DEBUG:
-		possible_keys.append("enemy_ship")
+		#possible_keys.append("enemy_ship")
 		#possible_keys.append("tank_ship")
 		#possible_keys.append("tiny_ship")
 	
-	if current_level >= 2:
+	if GameManager.wave >= 2:
 		possible_keys.append("enemy_ship")
-	if current_level >= 4:
+	if GameManager.wave >= 4:
 		possible_keys.append("tank_ship")
-	if current_level >= 6:
+	if GameManager.wave >= 7:
 		possible_keys.append("tiny_ship")
 	
 	return monsters[possible_keys.pick_random()]
 
 func spawn_enemies():
 	var can_spawn = true
-	var max_enemies_on_screen = get_dificulty(current_level)
+	var max_enemies_on_screen = get_dificulty()
 	while can_spawn:
 		if current_enemy_count < max_enemies_on_screen: 
 			var monster : CombatCharacter3D = get_random_monster().instantiate()
@@ -77,6 +77,6 @@ func update_level(level):
 	spawn_enemies()
 
 func _on_in_between_waves_timeout():
-	print("Leaving level: ", current_level)
-	current_level += 1
-	update_level(current_level)
+	print("Leaving level: ", GameManager.wave)
+	GameManager.wave += 1
+	update_level(GameManager.wave)

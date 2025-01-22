@@ -30,5 +30,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_btn_play_pressed() -> void:
-	## Change to game scene; TODO swap this for something else later.
+	## Change to game scene;
 	get_tree().change_scene_to_file("res://scenes/map/test_infinity.tscn")
+	GameManager.wave = 0 ## TODO: set the starting wave to be the selected one in a menu
+	
