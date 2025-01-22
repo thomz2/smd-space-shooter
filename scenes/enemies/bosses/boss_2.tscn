@@ -1,0 +1,79 @@
+[gd_scene load_steps=10 format=3 uid="uid://dh3lfo2dw4beo"]
+
+[ext_resource type="Script" path="res://scenes/enemies/bosses/boss_2.gd" id="1_6yw3g"]
+[ext_resource type="ArrayMesh" uid="uid://dq3l7ve50ubtg" path="res://assets/majadroid_spaceships/obj-ships/material-03/m3-ship3.obj" id="2_xtg5v"]
+[ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_eoc1f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6fy5l"]
+size = Vector3(2, 1, 4.35883)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0e7nc"]
+size = Vector3(2, 1.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4c65c"]
+size = Vector3(2, 3.6, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1miha"]
+size = Vector3(2, 5, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_e0mj4"]
+height = 4.0
+radius = 0.39082
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_00yst"]
+height = 1.80958
+radius = 1.6
+
+[node name="Boss2" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_6yw3g")
+max_health = 2000.0
+
+[node name="M3-ship3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, 0, 0, -2)
+mesh = ExtResource("2_xtg5v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.45297)
+shape = SubResource("BoxShape3D_6fy5l")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.832385)
+shape = SubResource("BoxShape3D_0e7nc")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.23628)
+shape = SubResource("BoxShape3D_4c65c")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.52844)
+shape = SubResource("BoxShape3D_1miha")
+
+[node name="BlasterMarkers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Marker3D" type="Marker3D" parent="BlasterMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -2)
+
+[node name="Marker3D2" type="Marker3D" parent="BlasterMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4, -2)
+
+[node name="Hitbox3D" type="Area3D" parent="."]
+process_mode = 4
+collision_layer = 0
+collision_mask = 2
+monitoring = false
+monitorable = false
+script = ExtResource("3_eoc1f")
+disabled = true
+target_type = 2
+damage = 30.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -1.2)
+shape = SubResource("CylinderShape3D_e0mj4")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2.2)
+shape = SubResource("CylinderShape3D_00yst")

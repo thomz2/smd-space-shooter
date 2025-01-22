@@ -63,5 +63,6 @@ func get_global_forwards() -> Vector3:
 func set_global_forwards(forwards:Vector3) -> void:
 	var up : Vector3 = Vector3.UP
 	## look_at doesn't work if forwards and up point the same direction
-	if forwards == Vector3.UP: up = Vector3.BACK
+	if forwards.x == 0 and forwards.z == 0: 
+		up = Vector3.BACK
 	look_at(global_position + forwards, up)
