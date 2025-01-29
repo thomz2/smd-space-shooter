@@ -14,7 +14,7 @@ func _on_button_increase_pressed() -> void:
 	update_state()
 
 func _on_button_decrease_pressed() -> void:
-	if (GameManager.wave > 0):
+	if (GameManager.wave > 1):
 		GameManager.wave -= 1
 	update_state()
 
