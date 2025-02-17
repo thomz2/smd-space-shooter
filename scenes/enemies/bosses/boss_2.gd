@@ -1,4 +1,4 @@
-extends CombatCharacter3D
+extends BaseBossCharacter
 
 enum States { ENTER, SWAY, WAIT, DASH, RETURN }
 

@@ -1,4 +1,4 @@
-extends CombatCharacter3D
+extends BaseBossCharacter
 
 var packed_blaster_bullet = preload("res://scenes/enemies/enemy_ship_bullet.tscn")
 var packed_spread_bullet = preload("res://scenes/enemies/generic_bullet.tscn")
