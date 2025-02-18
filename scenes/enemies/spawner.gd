@@ -109,9 +109,11 @@ func spawn_boss():
 	
 	print_debug("position: ", boss_enemy.global_position)
 
-func _show_2d_scene():
+func _show_2d_scene(level):
 	var wave_screen = $"../WaveInfoScreen/Control"  # Acessa o filho do CanvasLayer
 	var tween = get_tree().create_tween()
+
+	$"../WaveInfoScreen/Control/Label".text = "WAVE\n" + str(level)
 	
 	$"../WaveInfoScreen".visible = true  # Mostra o CanvasLayer
 	wave_screen.modulate.a = 0.0  # Começa invisível
@@ -132,7 +134,7 @@ func _hide_2d_scene():
 
 func update_level(level):
 	print("its level ", level)
-	_show_2d_scene();
+	_show_2d_scene(level);
 	#await _hide_2d_scene();
 	spawn_enemies()
 

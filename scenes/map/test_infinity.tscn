@@ -23,6 +23,7 @@ script = ExtResource("1_djbaw")
 [node name="Control" parent="WaveInfoScreen" instance=ExtResource("2_0ejjj")]
 
 [node name="PauseScreen" parent="." instance=ExtResource("1_lgg3r")]
+visible = false
 
 [node name="InBetweenWaves" type="Timer" parent="."]
 wait_time = 6.0
