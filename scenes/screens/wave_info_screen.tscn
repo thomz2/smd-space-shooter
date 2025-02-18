@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bayrel0l3q3b2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w88t0"]
+font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 312.0
+offset_right = 703.0
+offset_bottom = 367.0
+text = "OLA MUNDO"
+label_settings = SubResource("LabelSettings_w88t0")
+horizontal_alignment = 1
+vertical_alignment = 1

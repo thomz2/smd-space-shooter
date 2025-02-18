@@ -109,8 +109,31 @@ func spawn_boss():
 	
 	print_debug("position: ", boss_enemy.global_position)
 
+func _show_2d_scene():
+	var wave_screen = $"../WaveInfoScreen/Control"  # Acessa o filho do CanvasLayer
+	var tween = get_tree().create_tween()
+	
+	$"../WaveInfoScreen".visible = true  # Mostra o CanvasLayer
+	wave_screen.modulate.a = 0.0  # Começa invisível
+	
+	tween.tween_property(wave_screen, "modulate:a", 1.0, 0.3)  # Animação de fade-in
+	await tween.finished
+	
+	_hide_2d_scene()
+
+func _hide_2d_scene():
+	var wave_screen = $"../WaveInfoScreen/Control"
+	var tween = get_tree().create_tween()
+
+	tween.tween_property(wave_screen, "modulate:a", 0.0, 2.0)  # Animação de fade-out
+	await tween.finished  # Espera o fade-out terminar
+	
+	$"../WaveInfoScreen".visible = false  # Oculta o CanvasLayer
+
 func update_level(level):
 	print("its level ", level)
+	_show_2d_scene();
+	#await _hide_2d_scene();
 	spawn_enemies()
 
 
