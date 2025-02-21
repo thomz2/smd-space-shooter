@@ -14,6 +14,7 @@ func _ready() -> void:
 func grow_health_from_wave() -> void:
 	var wave := GameManager.wave
 	max_health *= 1 + 0.2*(floor(wave/4) - 1) # +20% every subsequent boss.
+	health = max_health
 
 
 ## This should be called on death to randomize and generate the items.

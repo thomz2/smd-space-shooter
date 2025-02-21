@@ -14,6 +14,8 @@ var speed : float = 0.0
 @export var lifespan : float = 10.0
 var lifetime : float = 0.0
 
+@export var can_be_reflected : bool = true
+
 ## For connecting signals automatically
 @export var main_hitbox : Hitbox3D = null
 

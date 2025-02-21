@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_body_entered(body:Node3D) -> void:
 	if body is Bullet3D:
-		if body.main_hitbox and body.main_hitbox.hits_player():
+		if body.main_hitbox and body.main_hitbox.hits_player() and body.can_be_reflected:
 			_reflect_bullet(body)
 
 func _reflect_bullet(bullet:Bullet3D) -> void:

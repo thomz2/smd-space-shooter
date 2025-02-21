@@ -32,7 +32,7 @@ func gain_score(value) -> void:
 
 func reset_level() -> void:
 	score = 0
-	wave = 0
+	wave = 1
 	get_tree().reload_current_scene()
 
 

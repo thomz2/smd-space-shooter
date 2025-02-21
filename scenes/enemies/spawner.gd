@@ -12,6 +12,7 @@ extends Node3D
 @onready var bosses = { #TODO: rename bosses
 	'boss_1': preload("res://scenes/enemies/bosses/boss_1.tscn"),
 	'boss_2': preload("res://scenes/enemies/bosses/boss_2.tscn"),
+	'boss_3': preload("res://scenes/enemies/bosses/boss_3.tscn"),
 }
 
 @onready var rand = RandomNumberGenerator.new()
@@ -60,8 +61,11 @@ func get_random_boss():
 	if GameManager.wave <= 12:
 		possible_keys.append("boss_1")
 	
-	if GameManager.wave >= 8:
+	if GameManager.wave >= 8 and GameManager.wave <= 20:
 		possible_keys.append("boss_2")
+	
+	if GameManager.wave >= 16:
+		possible_keys.append("boss_3")
 	
 	return bosses[possible_keys.pick_random()]
 

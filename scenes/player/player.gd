@@ -144,7 +144,6 @@ func kill():
 	rotation_tween.parallel() # makes the next command parallel to this last one
 	rotation_tween.tween_property(self, "rotation_degrees:x", -60, 2.0).from(0)
 	
-	# restart scene
-	# TODO: replace with death screen.
+	# game over screen
 	await get_tree().create_timer(0.5, true, false, true).timeout
 	get_tree().current_scene.add_child(packed_game_over.instantiate())

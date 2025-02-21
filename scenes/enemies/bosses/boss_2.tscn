@@ -1,8 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dh3lfo2dw4beo"]
+[gd_scene load_steps=12 format=3 uid="uid://dh3lfo2dw4beo"]
 
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_2.gd" id="1_6yw3g"]
+[ext_resource type="Texture2D" uid="uid://cjhixb7mk7aqd" path="res://assets/majadroid_spaceships/textures/tex04-512.png" id="2_hc1jd"]
 [ext_resource type="ArrayMesh" uid="uid://dq3l7ve50ubtg" path="res://assets/majadroid_spaceships/obj-ships/material-03/m3-ship3.obj" id="2_xtg5v"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_eoc1f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywon3"]
+albedo_texture = ExtResource("2_hc1jd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6fy5l"]
 size = Vector3(2, 1, 4.35883)
@@ -32,6 +36,7 @@ max_health = 1500.0
 
 [node name="M3-ship3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-09, 0.1, 0, -0.1, -4.37114e-09, 0, 0, 0, 0.1, 0, 0, -2)
+material_override = SubResource("StandardMaterial3D_ywon3")
 mesh = ExtResource("2_xtg5v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

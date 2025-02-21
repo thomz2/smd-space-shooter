@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://bswgph6tfdfhj"]
+
+[ext_resource type="Script" path="res://scenes/enemies/bosses/boss_3.gd" id="1_ch8h5"]
+[ext_resource type="PackedScene" uid="uid://dpg77mlpmubse" path="res://scenes/enemies/tank_ship_particle.tscn" id="2_ljg84"]
+[ext_resource type="Texture2D" uid="uid://03ipal2271h1" path="res://assets/majadroid_spaceships/textures/tex01-512.png" id="2_n2nwa"]
+[ext_resource type="ArrayMesh" uid="uid://fr1gixw4qluy" path="res://assets/majadroid_spaceships/obj-ships/material-01/m1-ship4.obj" id="5_51nx2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0e7nc"]
+size = Vector3(2, 1.5, 2.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4c65c"]
+size = Vector3(2, 4.5, 2.5542)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1miha"]
+size = Vector3(2, 6, 1.4)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3tl5i"]
+albedo_texture = ExtResource("2_n2nwa")
+
+[node name="Boss3" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ch8h5")
+max_health = 1500.0
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.138913)
+shape = SubResource("BoxShape3D_0e7nc")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.95918)
+shape = SubResource("BoxShape3D_4c65c")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.59381)
+shape = SubResource("BoxShape3D_1miha")
+
+[node name="CannonMarkers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Marker3D" type="Marker3D" parent="CannonMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, -1.5)
+
+[node name="TankShipParticle" parent="CannonMarkers/Marker3D" instance=ExtResource("2_ljg84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.4)
+
+[node name="Marker3D2" type="Marker3D" parent="CannonMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, -1.5)
+
+[node name="TankShipParticle" parent="CannonMarkers/Marker3D2" instance=ExtResource("2_ljg84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.4)
+
+[node name="BlasterMarkers" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+
+[node name="Marker3D" type="Marker3D" parent="BlasterMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2.5)
+
+[node name="Marker3D2" type="Marker3D" parent="BlasterMarkers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -2.5)
+
+[node name="M1-ship4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.11424e-09, 0.117, 0, -0.117, -5.11424e-09, 0, 0, 0, 0.117, 0, 0, -1.6)
+material_override = SubResource("StandardMaterial3D_3tl5i")
+mesh = ExtResource("5_51nx2")
