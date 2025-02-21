@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://blutrpxa4jgw8"]
+[gd_scene load_steps=12 format=3 uid="uid://blutrpxa4jgw8"]
 
 [ext_resource type="Environment" uid="uid://dmky6ixl1xvdh" path="res://assets/resources/space_environment.tres" id="1_7lg4x"]
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="1_d7tgc"]
+[ext_resource type="Script" path="res://scripts/wave_info_screen.gd" id="1_djbaw"]
 [ext_resource type="PackedScene" uid="uid://down3vre3e3pi" path="res://scenes/screens/pause_screen.tscn" id="1_lgg3r"]
+[ext_resource type="PackedScene" uid="uid://bayrel0l3q3b2" path="res://scenes/screens/wave_info_screen.tscn" id="2_0ejjj"]
 [ext_resource type="Script" path="res://scripts/skybox_rotation.gd" id="2_psal4"]
 [ext_resource type="Script" path="res://scenes/enemies/spawner.gd" id="2_qjig3"]
 [ext_resource type="Script" path="res://scripts/camera_3d_shaker.gd" id="3_sai3f"]
@@ -15,7 +17,13 @@
 
 [node name="TestInfinity" type="Node3D"]
 
+[node name="WaveInfoScreen" type="CanvasLayer" parent="."]
+script = ExtResource("1_djbaw")
+
+[node name="Control" parent="WaveInfoScreen" instance=ExtResource("2_0ejjj")]
+
 [node name="PauseScreen" parent="." instance=ExtResource("1_lgg3r")]
+visible = false
 
 [node name="InBetweenWaves" type="Timer" parent="."]
 wait_time = 6.0
