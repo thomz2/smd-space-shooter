@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dttu2kpr1131l"]
+
+[ext_resource type="Texture2D" uid="uid://d04cjyp7fsc8a" path="res://assets/ui/blueradar_long_hover.png" id="1_m8rls"]
+
+[resource]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+texture = ExtResource("1_m8rls")
+texture_margin_left = 24.0
+texture_margin_top = 2.0
+texture_margin_right = 24.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(3, 2, 196, 62)

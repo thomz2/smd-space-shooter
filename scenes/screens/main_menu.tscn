@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://m2rahrkm0b67"]
+[gd_scene load_steps=34 format=4 uid="uid://m2rahrkm0b67"]
 
 [ext_resource type="Script" path="res://scenes/screens/main_menu.gd" id="1_es5ga"]
 [ext_resource type="ArrayMesh" uid="uid://dkd8hw6c0wt0n" path="res://assets/kenney_spaceships/craft_speederA.obj" id="1_ix8oe"]
@@ -8,27 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://cvya6ox4fom6q" path="res://scenes/player/player.tscn" id="4_xj2e0"]
 [ext_resource type="Script" path="res://scenes/screens/wave_selection.gd" id="5_lvujf"]
 [ext_resource type="Theme" uid="uid://b21jb5f7osqxg" path="res://assets/ui/ui_theme.tres" id="6_nkkau"]
+[ext_resource type="Theme" uid="uid://cca85beaeh0ao" path="res://assets/ui/styleboxes/button_radar.tres" id="7_2douw"]
 [ext_resource type="Texture2D" uid="uid://cakksm2meiaby" path="res://assets/ui/blueradar_long.png" id="7_58wbd"]
-[ext_resource type="Texture2D" uid="uid://bdyb34yms8ypa" path="res://assets/ui/blueradar_long_focus.png" id="7_ko4rn"]
-[ext_resource type="Texture2D" uid="uid://d04cjyp7fsc8a" path="res://assets/ui/blueradar_long_hover.png" id="8_pi24s"]
 [ext_resource type="Texture2D" uid="uid://df420tebre4w" path="res://assets/ui/blue_lateral.png" id="9_45ev4"]
 [ext_resource type="Texture2D" uid="uid://cpsxoefu616bj" path="res://assets/ui/blue_laterald.png" id="10_uonpn"]
 [ext_resource type="Texture2D" uid="uid://6ft8ymusu0ej" path="res://assets/ui/blue_laterale_focus.png" id="11_qel6d"]
 [ext_resource type="Texture2D" uid="uid://lb5vmavd8rjj" path="res://assets/ui/blue_laterale_hover.png" id="12_i1b7h"]
 [ext_resource type="Texture2D" uid="uid://b4gbdc0t6eke8" path="res://assets/ui/blue_laterald_focus.png" id="14_3qwva"]
 [ext_resource type="Texture2D" uid="uid://u1pu3rmmj6im" path="res://assets/ui/blue_laterald_hover.png" id="15_qpp27"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t0soi"]
-texture = ExtResource("7_ko4rn")
-region_rect = Rect2(3, 2, 196, 62)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrbdu"]
-texture = ExtResource("8_pi24s")
-region_rect = Rect2(3, 2, 196, 62)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t5ppd"]
-texture = ExtResource("7_58wbd")
-region_rect = Rect2(3, 2, 196, 62)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ea2lg"]
 texture = ExtResource("7_58wbd")
@@ -1152,14 +1139,9 @@ grow_horizontal = 0
 grow_vertical = 2
 focus_neighbor_bottom = NodePath("../PanelWaveSelect/RightButton")
 focus_next = NodePath("../PanelWaveSelect/LeftButton")
-theme = ExtResource("6_nkkau")
+theme = ExtResource("7_2douw")
 theme_override_colors/font_focus_color = Color(0.941176, 0.941176, 0.941176, 1)
 theme_override_colors/font_color = Color(0.941176, 0.941176, 0.941176, 1)
-theme_override_fonts/font = ExtResource("4_p8484")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxTexture_t0soi")
-theme_override_styles/hover = SubResource("StyleBoxTexture_qrbdu")
-theme_override_styles/normal = SubResource("StyleBoxTexture_t5ppd")
 text = "PLAY"
 
 [node name="PanelWaveSelect" type="Panel" parent="."]

@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cca85beaeh0ao"]
+
+[ext_resource type="FontFile" uid="uid://lreprk0huqvs" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_iod1b"]
+[ext_resource type="StyleBox" uid="uid://ckfggeho8p7b5" path="res://assets/ui/styleboxes/button_radar_focus.tres" id="2_1fabu"]
+[ext_resource type="StyleBox" uid="uid://dttu2kpr1131l" path="res://assets/ui/styleboxes/button_radar_hover.tres" id="3_5fqby"]
+[ext_resource type="StyleBox" uid="uid://bj5svusu3e5er" path="res://assets/ui/styleboxes/button_radar_normal.tres" id="4_wtaaw"]
+
+[resource]
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_iod1b")
+Button/styles/focus = ExtResource("2_1fabu")
+Button/styles/hover = ExtResource("3_5fqby")
+Button/styles/normal = ExtResource("4_wtaaw")

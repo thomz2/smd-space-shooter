@@ -1,34 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://down3vre3e3pi"]
+[gd_scene load_steps=4 format=3 uid="uid://down3vre3e3pi"]
 
 [ext_resource type="Script" path="res://scenes/screens/pause_screen.gd" id="1_7nrhc"]
 [ext_resource type="FontFile" uid="uid://lreprk0huqvs" path="res://assets/fonts/PressStart2P-Regular.ttf" id="2_dk3p5"]
-[ext_resource type="Texture2D" uid="uid://bdyb34yms8ypa" path="res://assets/ui/blueradar_long_focus.png" id="3_lysqt"]
-[ext_resource type="Texture2D" uid="uid://d04cjyp7fsc8a" path="res://assets/ui/blueradar_long_hover.png" id="4_sbwgt"]
-[ext_resource type="Texture2D" uid="uid://cakksm2meiaby" path="res://assets/ui/blueradar_long.png" id="5_fq1xr"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kc7w2"]
-texture = ExtResource("3_lysqt")
-region_rect = Rect2(3, 2, 196, 62)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aei7m"]
-texture = ExtResource("4_sbwgt")
-region_rect = Rect2(3, 2, 196, 62)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hyhwx"]
-texture = ExtResource("5_fq1xr")
-region_rect = Rect2(3, 2, 196, 62)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fcjp3"]
-texture = ExtResource("3_lysqt")
-region_rect = Rect2(3, 2, 196, 62)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_27hat"]
-texture = ExtResource("4_sbwgt")
-region_rect = Rect2(3, 2, 196, 62)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_leja0"]
-texture = ExtResource("5_fq1xr")
-region_rect = Rect2(3, 2, 196, 62)
+[ext_resource type="Theme" uid="uid://cca85beaeh0ao" path="res://assets/ui/styleboxes/button_radar.tres" id="2_q2iwa"]
 
 [node name="PauseScreen" type="CanvasLayer"]
 script = ExtResource("1_7nrhc")
@@ -49,21 +23,13 @@ grow_vertical = 2
 [node name="BtnContinue" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_dk3p5")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxTexture_kc7w2")
-theme_override_styles/hover = SubResource("StyleBoxTexture_aei7m")
-theme_override_styles/normal = SubResource("StyleBoxTexture_hyhwx")
+theme = ExtResource("2_q2iwa")
 text = "Continue"
 
 [node name="BtnTitle" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_dk3p5")
-theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxTexture_fcjp3")
-theme_override_styles/hover = SubResource("StyleBoxTexture_27hat")
-theme_override_styles/normal = SubResource("StyleBoxTexture_leja0")
+theme = ExtResource("2_q2iwa")
 text = "Back to Title"
 
 [node name="Label" type="Label" parent="."]

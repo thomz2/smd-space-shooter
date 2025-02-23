@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bayrel0l3q3b2"]
+[gd_scene load_steps=3 format=3 uid="uid://bayrel0l3q3b2"]
+
+[ext_resource type="FontFile" uid="uid://lreprk0huqvs" path="res://assets/fonts/PressStart2P-Regular.ttf" id="1_ceo57"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w88t0"]
 font_size = 40
 
-[node name="Control" type="Control"]
+[node name="WaveInfoScreen" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,6 +21,7 @@ offset_left = -121.0
 offset_top = -28.0
 offset_right = 128.0
 offset_bottom = 27.0
+theme_override_fonts/font = ExtResource("1_ceo57")
 text = "WAVE
 1"
 label_settings = SubResource("LabelSettings_w88t0")
