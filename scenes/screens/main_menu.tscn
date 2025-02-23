@@ -1142,7 +1142,7 @@ focus_next = NodePath("../PanelWaveSelect/LeftButton")
 theme = ExtResource("7_2douw")
 theme_override_colors/font_focus_color = Color(0.941176, 0.941176, 0.941176, 1)
 theme_override_colors/font_color = Color(0.941176, 0.941176, 0.941176, 1)
-text = "PLAY"
+text = "JOGAR"
 
 [node name="PanelWaveSelect" type="Panel" parent="."]
 anchors_preset = 6

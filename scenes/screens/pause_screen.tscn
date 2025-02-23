@@ -24,13 +24,13 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_q2iwa")
-text = "Continue"
+text = "Continuar"
 
 [node name="BtnTitle" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("2_q2iwa")
-text = "Back to Title"
+text = "Voltar ao Título"
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8
@@ -46,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_dk3p5")
 theme_override_font_sizes/font_size = 40
-text = "PAUSED"
+text = "PAUSADO"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/BtnContinue" to="." method="_on_btn_continue_pressed"]
