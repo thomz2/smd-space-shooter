@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmay2cms0qrdl"]
+[gd_scene load_steps=10 format=3 uid="uid://dmay2cms0qrdl"]
 
 [ext_resource type="Script" path="res://scripts/combat/bullet_3d.gd" id="1_vtwr2"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="2_6lfbu"]
@@ -7,11 +7,31 @@
 size = Vector3(1.4, 0.4, 0.7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2mdf"]
+cull_mode = 1
+shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_c47hh"]
 resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_w2mdf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ba01c"]
+shading_mode = 0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_blfp7"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ba01c")
+radius = 0.3
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_su3rv"]
+shading_mode = 0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_erqpd"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_su3rv")
+radius = 0.3
+height = 1.8
 
 [node name="EnemyShipBullet" type="CharacterBody3D"]
 collision_layer = 0
@@ -41,3 +61,11 @@ destroy_after_collision = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
 shape = SubResource("BoxShape3D_oxvkb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.270507, 0, 0, 0, -1.18242e-08, 0.270507, 0, -0.270507, -1.18242e-08, 0.5, 0, 0)
+mesh = SubResource("CapsuleMesh_blfp7")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.270507, 0, 0, 0, -1.18242e-08, 0.270507, 0, -0.270507, -1.18242e-08, -0.5, 0, 0)
+mesh = SubResource("CapsuleMesh_erqpd")

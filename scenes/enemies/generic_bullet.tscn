@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cga4v1pg77y3o"]
+[gd_scene load_steps=8 format=3 uid="uid://cga4v1pg77y3o"]
 
 [ext_resource type="Script" path="res://scripts/combat/bullet_3d.gd" id="1_35xqs"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="2_ycdo7"]
@@ -7,6 +7,8 @@
 radius = 0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_302f4"]
+cull_mode = 1
+shading_mode = 0
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_n285d"]
@@ -14,6 +16,14 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_302f4")
 radius = 0.2
 height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bbaag"]
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_b00c1"]
+material = SubResource("StandardMaterial3D_bbaag")
+radius = 0.15
+height = 0.32
 
 [node name="GenericBullet" type="CharacterBody3D"]
 collision_layer = 0
@@ -26,6 +36,9 @@ shape = SubResource("SphereShape3D_167f6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("SphereMesh_n285d")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_b00c1")
 
 [node name="Hitbox3D" type="Area3D" parent="."]
 collision_layer = 0

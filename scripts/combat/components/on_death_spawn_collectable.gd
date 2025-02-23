@@ -4,11 +4,11 @@ class_name OnDeathSpawnCollectable
 @export var awards = {
 	"v_shot": {
 		"scene": preload("res://scenes/objects/collectables/v_shot_collectable.tscn"),
-		"chance": 6, # one in six
+		"chance": 1, # one in six
 	},
 	"health": {
 		"scene": preload("res://scenes/objects/collectables/health_collectable.tscn"),
-		"chance": 3,
+		"chance": 10,
 	},
 } 
 

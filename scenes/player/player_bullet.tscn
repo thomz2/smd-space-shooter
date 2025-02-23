@@ -1,14 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://cq3pg2mk2yn72"]
+[gd_scene load_steps=10 format=3 uid="uid://cq3pg2mk2yn72"]
 
 [ext_resource type="Script" path="res://scripts/combat/bullet_3d.gd" id="1_q1dvw"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="2_62po3"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xo56r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6j2ej"]
+cull_mode = 1
+shading_mode = 0
 albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8qqqo"]
 resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_xo56r")
+material = SubResource("StandardMaterial3D_6j2ej")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lr4vc"]
+shading_mode = 0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ibkht"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_lr4vc")
+radius = 0.3
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1b6j1"]
+shading_mode = 0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yhair"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_1b6j1")
+radius = 0.3
+height = 1.8
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oxvkb"]
 size = Vector3(1.4, 0.567383, 0.7)
@@ -26,6 +46,14 @@ mesh = SubResource("CapsuleMesh_8qqqo")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.270507, 0, 0, 0, -1.18242e-08, 0.270507, 0, -0.270507, -1.18242e-08, -0.5, 0, 0)
 mesh = SubResource("CapsuleMesh_8qqqo")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.270507, 0, 0, 0, -1.18242e-08, 0.270507, 0, -0.270507, -1.18242e-08, 0.5, 0, 0)
+mesh = SubResource("CapsuleMesh_ibkht")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.270507, 0, 0, 0, -1.18242e-08, 0.270507, 0, -0.270507, -1.18242e-08, -0.5, 0, 0)
+mesh = SubResource("CapsuleMesh_yhair")
 
 [node name="Hitbox3D" type="Area3D" parent="."]
 collision_layer = 0

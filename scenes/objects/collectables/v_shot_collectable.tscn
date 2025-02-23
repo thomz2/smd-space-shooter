@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5gx5gtaq4887"]
+[gd_scene load_steps=4 format=3 uid="uid://b5gx5gtaq4887"]
 
 [ext_resource type="Script" path="res://scenes/objects/collectables/v_shot_collectable.gd" id="1_yoipq"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_mll8r"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4alck"]
+albedo_color = Color(1, 1, 0.172549, 1)
+emission_enabled = true
+emission = Color(1, 1, 0.172549, 1)
+emission_energy_multiplier = 2.28
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jxpn6"]
+material = SubResource("StandardMaterial3D_4alck")
+radius = 0.25
+height = 1.0
 
 [node name="VShotCollectable" type="Node3D"]
 script = ExtResource("1_yoipq")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.999993, 0.0026253, 0.0027057, 0, 0.717689, -0.696364, -0.00377002, -0.696359, -0.717684, 0, 0.206258, 0)
+mesh = SubResource("CapsuleMesh_jxpn6")
+skeleton = NodePath("../MeshInstance3D")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CylinderMesh_mll8r")
+transform = Transform3D(-0.999993, -0.00291943, 0.00238536, 0, 0.632719, 0.774382, -0.00377002, 0.774376, -0.632714, 0, -0.199375, 0)
+mesh = SubResource("CapsuleMesh_jxpn6")

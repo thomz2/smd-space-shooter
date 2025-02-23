@@ -12,3 +12,4 @@ sky_material = SubResource("PanoramaSkyMaterial_e4vk8")
 background_mode = 2
 sky = SubResource("Sky_xcfu8")
 sky_custom_fov = 70.0
+glow_enabled = true
