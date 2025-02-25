@@ -1,9 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8bqgr1t8xm56"]
+[gd_scene load_steps=13 format=3 uid="uid://c8bqgr1t8xm56"]
 
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_1.gd" id="1_xuvbc"]
 [ext_resource type="ArrayMesh" uid="uid://buud5ljd3wxld" path="res://assets/majadroid_spaceships/obj-ships/material-01/m1-ship3.obj" id="2_3ny4t"]
 [ext_resource type="Texture2D" uid="uid://03ipal2271h1" path="res://assets/majadroid_spaceships/textures/tex01-512.png" id="3_mysid"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="3_ot4gh"]
+[ext_resource type="Script" path="res://scenes/enemies/bosses/boss_drop_holder.gd" id="5_rg17w"]
+[ext_resource type="PackedScene" uid="uid://coukm7uj0t8wi" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_sth3y"]
+[ext_resource type="PackedScene" uid="uid://b5gx5gtaq4887" path="res://scenes/objects/collectables/v_shot_collectable.tscn" id="7_udmsm"]
+[ext_resource type="PackedScene" uid="uid://dd1leo7w5x7rn" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_dyi8s"]
+[ext_resource type="PackedScene" uid="uid://3aqryg3ighnn" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_tuf8w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hk5y"]
 albedo_texture = ExtResource("3_mysid")
@@ -48,3 +53,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 9)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 9)
 
 [node name="SpreadMarker" type="Marker3D" parent="."]
+
+[node name="BossDropHolder" type="Node3D" parent="."]
+script = ExtResource("5_rg17w")
+amount_to_drop = 3
+possible_drops = Array[PackedScene]([ExtResource("7_udmsm"), ExtResource("7_sth3y"), ExtResource("8_dyi8s"), ExtResource("9_tuf8w")])

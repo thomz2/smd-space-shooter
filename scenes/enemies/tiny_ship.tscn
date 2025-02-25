@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqddpw6jduexh"]
+[gd_scene load_steps=12 format=3 uid="uid://bqddpw6jduexh"]
 
 [ext_resource type="Script" path="res://scenes/enemies/tiny_ship.gd" id="1_3qv2x"]
 [ext_resource type="ArrayMesh" uid="uid://bols2sg286ig8" path="res://assets/kenney_spaceships/craft_speederB.obj" id="2_8a6ev"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cga4v1pg77y3o" path="res://scenes/enemies/generic_bullet.tscn" id="4_560ol"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="5_3h8vm"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_leave_screen_despawn.gd" id="6_adtqp"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_death_spawn_collectable.gd" id="8_nsaw6"]
+[ext_resource type="PackedScene" uid="uid://cowtxkrbgmqya" path="res://scenes/objects/collectables/health_collectable_plus.tscn" id="9_d032i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p4dqk"]
 size = Vector3(0.704529, 0.406417, 0.678572)
@@ -58,3 +60,15 @@ score = 400
 
 [node name="OnLeaveScreenDespawn" type="VisibleOnScreenNotifier3D" parent="."]
 script = ExtResource("6_adtqp")
+
+[node name="OnDeathSpawnCollectable" type="Node" parent="."]
+script = ExtResource("8_nsaw6")
+awards = {
+"health": {
+"chance": 10,
+"scene": ExtResource("9_d032i")
+}
+}
+
+[node name="OnDeathSpawnCollectable2" type="Node" parent="."]
+script = ExtResource("8_nsaw6")

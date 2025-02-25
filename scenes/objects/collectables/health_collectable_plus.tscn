@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cowtxkrbgmqya"]
+
+[ext_resource type="Script" path="res://scenes/objects/collectables/health_collectable.gd" id="1_klwxt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwnof"]
+albedo_color = Color(0.5, 1, 0.566667, 1)
+emission_enabled = true
+emission = Color(0.501961, 1, 0.568627, 1)
+emission_energy_multiplier = 2.28
+
+[sub_resource type="TorusMesh" id="TorusMesh_g2lgm"]
+material = SubResource("StandardMaterial3D_cwnof")
+inner_radius = 0.2
+outer_radius = 0.4
+rings = 16
+ring_segments = 8
+
+[node name="HealthCollectablePlus" type="Node3D"]
+script = ExtResource("1_klwxt")
+healing_amount = 50.0
+magnetize_speed = 20.0
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("TorusMesh_g2lgm")

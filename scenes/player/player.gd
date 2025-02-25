@@ -54,9 +54,11 @@ func _ready() -> void:
 	GameManager.player = self
 	#TODO: load stats from save data for meta progression
 	stats = PlayerStats.new()
+	stats.max_health_changed.connect(func(): max_health = stats.max_health)
 	
 	super()
 	health_changed.connect(_on_health_changed)
+	
 
 
 
@@ -106,7 +108,7 @@ func _physics_process(delta: float) -> void:
 	# to move the ship, we first modify its velocity, then call move_and_slide().
 	# move_and_slide() already multiplies velocity by delta time.
 	var final_move_speed = move_speed * stats.get_move_speed_mult()
-	var final_accel = accel * stats.get_move_speed_mult()
+	var final_accel = 2 * accel * stats.get_move_speed_mult()
 	velocity.y = move_toward(velocity.y, final_move_speed * input_direction.y, delta * final_accel)
 	velocity.z = move_toward(velocity.z, final_move_speed * -input_direction.x, delta * final_accel) # negative z is forwards
 	move_and_slide()

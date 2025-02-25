@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bswgph6tfdfhj"]
+[gd_scene load_steps=14 format=3 uid="uid://bswgph6tfdfhj"]
 
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_3.gd" id="1_ch8h5"]
 [ext_resource type="PackedScene" uid="uid://dpg77mlpmubse" path="res://scenes/enemies/tank_ship_particle.tscn" id="2_ljg84"]
 [ext_resource type="Texture2D" uid="uid://03ipal2271h1" path="res://assets/majadroid_spaceships/textures/tex01-512.png" id="2_n2nwa"]
 [ext_resource type="ArrayMesh" uid="uid://fr1gixw4qluy" path="res://assets/majadroid_spaceships/obj-ships/material-01/m1-ship4.obj" id="5_51nx2"]
+[ext_resource type="Script" path="res://scenes/enemies/bosses/boss_drop_holder.gd" id="5_a0coj"]
+[ext_resource type="PackedScene" uid="uid://coukm7uj0t8wi" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_dsr32"]
+[ext_resource type="PackedScene" uid="uid://b5gx5gtaq4887" path="res://scenes/objects/collectables/v_shot_collectable.tscn" id="7_iqdba"]
+[ext_resource type="PackedScene" uid="uid://dd1leo7w5x7rn" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_6enfd"]
+[ext_resource type="PackedScene" uid="uid://3aqryg3ighnn" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_wiks7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0e7nc"]
 size = Vector3(2, 1.5, 2.4)
@@ -63,3 +68,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -2.5)
 transform = Transform3D(-5.11424e-09, 0.117, 0, -0.117, -5.11424e-09, 0, 0, 0, 0.117, 0, 0, -1.6)
 material_override = SubResource("StandardMaterial3D_3tl5i")
 mesh = ExtResource("5_51nx2")
+
+[node name="BossDropHolder" type="Node3D" parent="."]
+script = ExtResource("5_a0coj")
+amount_to_drop = 3
+possible_drops = Array[PackedScene]([ExtResource("7_iqdba"), ExtResource("7_dsr32"), ExtResource("8_6enfd"), ExtResource("9_wiks7")])

@@ -1,9 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dh3lfo2dw4beo"]
+[gd_scene load_steps=17 format=3 uid="uid://dh3lfo2dw4beo"]
 
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_2.gd" id="1_6yw3g"]
 [ext_resource type="Texture2D" uid="uid://cjhixb7mk7aqd" path="res://assets/majadroid_spaceships/textures/tex04-512.png" id="2_hc1jd"]
 [ext_resource type="ArrayMesh" uid="uid://dq3l7ve50ubtg" path="res://assets/majadroid_spaceships/obj-ships/material-03/m3-ship3.obj" id="2_xtg5v"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_eoc1f"]
+[ext_resource type="Script" path="res://scenes/enemies/bosses/boss_drop_holder.gd" id="5_mp0gy"]
+[ext_resource type="PackedScene" uid="uid://b5gx5gtaq4887" path="res://scenes/objects/collectables/v_shot_collectable.tscn" id="6_7hdpt"]
+[ext_resource type="PackedScene" uid="uid://coukm7uj0t8wi" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_l8bj2"]
+[ext_resource type="PackedScene" uid="uid://dd1leo7w5x7rn" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_bphfh"]
+[ext_resource type="PackedScene" uid="uid://3aqryg3ighnn" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_3hqje"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywon3"]
 albedo_texture = ExtResource("2_hc1jd")
@@ -82,3 +87,8 @@ shape = SubResource("CylinderShape3D_e0mj4")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Hitbox3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -2.2)
 shape = SubResource("CylinderShape3D_00yst")
+
+[node name="BossDropHolder" type="Node3D" parent="."]
+script = ExtResource("5_mp0gy")
+amount_to_drop = 3
+possible_drops = Array[PackedScene]([ExtResource("6_7hdpt"), ExtResource("7_l8bj2"), ExtResource("8_bphfh"), ExtResource("9_3hqje")])
