@@ -5,7 +5,7 @@ extends Node3D
 
 @export var packed_bullet : PackedScene
 
-@export var fire_rate : float = 0.1
+@export var fire_rate : float = 0.15
 var fire_timer : float = 0.0
 
 @onready var parent = get_parent()

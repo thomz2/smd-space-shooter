@@ -24,7 +24,7 @@ collision_layer = 4
 collision_mask = 0
 motion_mode = 1
 script = ExtResource("1_xuvbc")
-max_health = 2000.0
+max_health = 1000.0
 
 [node name="M1-ship3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.31134e-08, 0.3, 0, -0.3, -1.31134e-08, 0, 0, 0, 0.3, 0, 0, -6.407)
@@ -56,5 +56,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 9)
 
 [node name="BossDropHolder" type="Node3D" parent="."]
 script = ExtResource("5_rg17w")
-amount_to_drop = 3
 possible_drops = Array[PackedScene]([ExtResource("7_udmsm"), ExtResource("7_sth3y"), ExtResource("8_dyi8s"), ExtResource("9_tuf8w")])
