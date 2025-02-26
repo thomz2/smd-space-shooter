@@ -78,6 +78,7 @@ func _on_body_entered(body:Node3D):
 			damage *= _get_player_damage_mult()
 		
 		body.health -= damage
+		AudioManager.play_sfx("collision_enemy.wav")
 		
 		if destroy_after_collision and not Engine.is_editor_hint():
 			destroy()

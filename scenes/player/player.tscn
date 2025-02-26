@@ -1,12 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://cvya6ox4fom6q"]
+[gd_scene load_steps=21 format=3 uid="uid://cvya6ox4fom6q"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl27y"]
 [ext_resource type="ArrayMesh" uid="uid://pou5tpidnnbv" path="res://assets/kenney_spaceships/craft_speederC.obj" id="2_bktko"]
 [ext_resource type="PackedScene" uid="uid://b8jk6ddp3o0hf" path="res://scenes/player/shot/basic_shot.tscn" id="2_epu45"]
 [ext_resource type="Script" path="res://scenes/player/player_reflector_area.gd" id="4_p5ua8"]
 [ext_resource type="PackedScene" uid="uid://7wauwjgrekp3" path="res://scenes/player/heads_up_display.tscn" id="5_d8vqi"]
-[ext_resource type="AudioStream" uid="uid://bsfg356yv2rq2" path="res://assets/SFX/dodgeSFX.wav" id="7_xi4m2"]
-[ext_resource type="AudioStream" uid="uid://b0lg1i4w7c6p1" path="res://assets/SFX/collision.ogg" id="8_5vhk2"]
+[ext_resource type="AudioStream" uid="uid://bdusbdypnljqy" path="res://assets/SFX/new_dodge1.wav" id="6_rkwla"]
+[ext_resource type="AudioStream" uid="uid://dufbsfp8lwqhn" path="res://assets/SFX/player_damage.wav" id="7_lv6ih"]
+[ext_resource type="AudioStream" uid="uid://cn8f3ffedxy7g" path="res://assets/SFX/530488__rickplayer__heal-up.mp3" id="8_np0q7"]
 [ext_resource type="Texture2D" uid="uid://c4wcge8jw5keh" path="res://assets/icons8/icons8-hexagon-96.png" id="9_hnebt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gsnyb"]
@@ -94,15 +95,20 @@ shape = SubResource("SphereShape3D_0rek0")
 
 [node name="HeadsUpDisplay" parent="." instance=ExtResource("5_d8vqi")]
 
-[node name="DodgingSFX" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("7_xi4m2")
-volume_db = 31.554
-max_db = 6.0
-pitch_scale = 2.0
+[node name="DodgingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_rkwla")
+volume_db = 18.0
+bus = &"SFX"
 
-[node name="CollisionSFX" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("8_5vhk2")
-volume_db = 24.041
+[node name="DamageSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_lv6ih")
+volume_db = 5.818
+bus = &"SFX"
+
+[node name="HealSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_np0q7")
+volume_db = 5.818
+bus = &"SFX"
 
 [node name="ReflectParticle" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_sywdc")

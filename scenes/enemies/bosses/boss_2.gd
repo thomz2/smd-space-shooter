@@ -101,6 +101,7 @@ func shoot() -> void:
 	var player = get_tree().get_first_node_in_group("PLAYER")
 	if not player: return
 	
+	AudioManager.play_sfx("enemy_shot.wav")
 	for i in range(2):
 		var blaster_pos : Vector3 = $BlasterMarkers.get_child(i).global_position
 		var direction : Vector3 = blaster_pos.direction_to(player.global_position)

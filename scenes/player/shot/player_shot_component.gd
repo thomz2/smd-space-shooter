@@ -33,7 +33,7 @@ func shoot() -> void:
 	# rotate to face parent's facing
 	bullet.set_global_forwards((-parent.global_basis.z).normalized())
 	
-	AudioManager.play_sfx("player_shot_1.wav")
+	AudioManager.play_sfx("player_shot_normal.wav")
 
 
 func _physics_process(delta: float) -> void:

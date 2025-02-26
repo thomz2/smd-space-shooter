@@ -18,3 +18,4 @@ func shoot():
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = self.global_position
 	bullet.global_rotation = self.global_rotation
+	AudioManager.play_sfx("enemy_shot.wav")

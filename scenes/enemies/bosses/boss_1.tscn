@@ -3,11 +3,11 @@
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_1.gd" id="1_xuvbc"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="3_ot4gh"]
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_drop_holder.gd" id="5_rg17w"]
-[ext_resource type="PackedScene" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_sth3y"]
+[ext_resource type="PackedScene" uid="uid://coukm7uj0t8wi" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_sth3y"]
 [ext_resource type="PackedScene" uid="uid://b5gx5gtaq4887" path="res://scenes/objects/collectables/v_shot_collectable.tscn" id="7_udmsm"]
-[ext_resource type="PackedScene" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_dyi8s"]
+[ext_resource type="PackedScene" uid="uid://dd1leo7w5x7rn" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_dyi8s"]
 [ext_resource type="Script" path="res://scripts/hit_flash_player.gd" id="8_yhuf5"]
-[ext_resource type="PackedScene" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_tuf8w"]
+[ext_resource type="PackedScene" uid="uid://3aqryg3ighnn" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_tuf8w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7hrj"]
 resource_name = "Material-1"
@@ -45,6 +45,21 @@ size = Vector3(10.4355, 3, 10.3222)
 [sub_resource type="BoxShape3D" id="BoxShape3D_atgm4"]
 size = Vector3(10.4355, 10, 5)
 
+[sub_resource type="Animation" id="Animation_6bqmd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("M1-ship3:surface_material_override/0:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_lvalm"]
 resource_name = "flash"
 length = 0.2
@@ -59,21 +74,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_6bqmd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("M1-ship3:surface_material_override/0:emission")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mrc6c"]

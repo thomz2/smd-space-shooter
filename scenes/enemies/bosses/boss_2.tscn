@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_eoc1f"]
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_drop_holder.gd" id="5_mp0gy"]
 [ext_resource type="PackedScene" uid="uid://b5gx5gtaq4887" path="res://scenes/objects/collectables/v_shot_collectable.tscn" id="6_7hdpt"]
-[ext_resource type="PackedScene" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_l8bj2"]
+[ext_resource type="PackedScene" uid="uid://coukm7uj0t8wi" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_l8bj2"]
 [ext_resource type="Script" path="res://scripts/hit_flash_player.gd" id="8_5x6vj"]
-[ext_resource type="PackedScene" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_bphfh"]
-[ext_resource type="PackedScene" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_3hqje"]
+[ext_resource type="PackedScene" uid="uid://dd1leo7w5x7rn" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_bphfh"]
+[ext_resource type="PackedScene" uid="uid://3aqryg3ighnn" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_3hqje"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vfkqm"]
 load_path = "res://.godot/imported/tex04-512.png-e55d8450d5fe6781ff51dfe180a37b93.s3tc.ctex"
@@ -59,6 +59,21 @@ radius = 0.39082
 height = 1.80958
 radius = 1.6
 
+[sub_resource type="Animation" id="Animation_fwd31"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("M3-ship3:material_override:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_83h32"]
 resource_name = "flash"
 length = 0.2
@@ -73,21 +88,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_fwd31"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("M3-ship3:material_override:emission")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pb0mi"]
