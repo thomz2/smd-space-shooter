@@ -1,13 +1,14 @@
-[gd_scene load_steps=19 format=4 uid="uid://bswgph6tfdfhj"]
+[gd_scene load_steps=41 format=4 uid="uid://bswgph6tfdfhj"]
 
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_3.gd" id="1_ch8h5"]
-[ext_resource type="PackedScene" uid="uid://dpg77mlpmubse" path="res://scenes/enemies/tank_ship_particle.tscn" id="2_ljg84"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/tank_ship_particle.tscn" id="2_ljg84"]
 [ext_resource type="Script" path="res://scenes/enemies/bosses/boss_drop_holder.gd" id="5_a0coj"]
-[ext_resource type="PackedScene" uid="uid://coukm7uj0t8wi" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_dsr32"]
+[ext_resource type="PackedScene" path="res://scenes/objects/collectables/attack_up_collectable.tscn" id="7_dsr32"]
 [ext_resource type="PackedScene" uid="uid://b5gx5gtaq4887" path="res://scenes/objects/collectables/v_shot_collectable.tscn" id="7_iqdba"]
 [ext_resource type="Script" path="res://scripts/hit_flash_player.gd" id="8_4d0ff"]
-[ext_resource type="PackedScene" uid="uid://dd1leo7w5x7rn" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_6enfd"]
-[ext_resource type="PackedScene" uid="uid://3aqryg3ighnn" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_wiks7"]
+[ext_resource type="PackedScene" path="res://scenes/objects/collectables/movespeed_up_collectable.tscn" id="8_6enfd"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_death_particle_spawner.gd" id="9_cmpyf"]
+[ext_resource type="PackedScene" path="res://scenes/objects/collectables/max_health_up_collectable.tscn" id="9_wiks7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0e7nc"]
 size = Vector3(2, 1.5, 2.4)
@@ -85,11 +86,126 @@ _data = {
 "flash": SubResource("Animation_e0eiv")
 }
 
+[sub_resource type="Curve" id="Curve_3g6ai"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.616505, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_g6bkr"]
+curve = SubResource("Curve_3g6ai")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rvvik"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_g6bkr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb8py"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.397932, 0.0188694, 1)
+emission_enabled = true
+emission = Color(0.903957, 0.388226, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yi2yg"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_qb8py")
+top_radius = 0.05
+bottom_radius = 0.0
+height = 1.0
+
+[sub_resource type="Gradient" id="Gradient_nbxmf"]
+colors = PackedColorArray(0.821673, 0.579776, 0.0991864, 1, 1, 0.356863, 0.0980392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_58mdt"]
+gradient = SubResource("Gradient_nbxmf")
+
+[sub_resource type="Curve" id="Curve_kg5kr"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.943396), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_emfvc"]
+curve = SubResource("Curve_kg5kr")
+
+[sub_resource type="Curve" id="Curve_1nwdm"]
+_data = [Vector2(0.0297619, 0.0490565), 0.0, 0.0, 0, 0, Vector2(0.244048, 0.984906), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qmwqr"]
+curve = SubResource("Curve_1nwdm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_18pxn"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_qmwqr")
+color = Color(0.980791, 0.700926, 0, 1)
+color_ramp = SubResource("GradientTexture1D_58mdt")
+emission_curve = SubResource("CurveTexture_emfvc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5c7yp"]
+resource_local_to_scene = true
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_u8jx4"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_5c7yp")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_vqp06"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.648809, 0.818868), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_divt7"]
+curve = SubResource("Curve_vqp06")
+
+[sub_resource type="Curve" id="Curve_b2bco"]
+_data = [Vector2(0.0297619, 0.0490565), 0.0, 0.0, 0, 0, Vector2(0.244048, 0.984906), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ehv78"]
+curve = SubResource("Curve_b2bco")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xhlf5"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_ehv78")
+color = Color(0.178655, 0.178516, 7.21961e-08, 1)
+alpha_curve = SubResource("CurveTexture_divt7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lak8s"]
+resource_local_to_scene = true
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_e1mlp"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_lak8s")
+radial_segments = 8
+rings = 4
+
 [node name="Boss3" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_ch8h5")
-max_health = 1500.0
+max_health = 1000.0
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.138913)
@@ -142,5 +258,104 @@ libraries = {
 "": SubResource("AnimationLibrary_oh5nc")
 }
 script = ExtResource("8_4d0ff")
+
+[node name="OnDeathParticleSpawner" type="Node3D" parent="."]
+script = ExtResource("9_cmpyf")
+
+[node name="Debris2" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.03417, -2.73892)
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_rvvik")
+draw_pass_1 = SubResource("CylinderMesh_yi2yg")
+
+[node name="Fire2" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03417, -2.73892)
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_18pxn")
+draw_pass_1 = SubResource("SphereMesh_u8jx4")
+
+[node name="Smoke2" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03417, -2.73892)
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xhlf5")
+draw_pass_1 = SubResource("SphereMesh_e1mlp")
+
+[node name="Debris" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0.0326147)
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_rvvik")
+draw_pass_1 = SubResource("CylinderMesh_yi2yg")
+
+[node name="Fire" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0326147)
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_18pxn")
+draw_pass_1 = SubResource("SphereMesh_u8jx4")
+
+[node name="Smoke" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0326147)
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xhlf5")
+draw_pass_1 = SubResource("SphereMesh_e1mlp")
+
+[node name="Debris3" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -2.50192, -2.07576)
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_rvvik")
+draw_pass_1 = SubResource("CylinderMesh_yi2yg")
+
+[node name="Fire3" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.50192, -2.07576)
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_18pxn")
+draw_pass_1 = SubResource("SphereMesh_u8jx4")
+
+[node name="Smoke3" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.50192, -2.07576)
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_xhlf5")
+draw_pass_1 = SubResource("SphereMesh_e1mlp")
 
 [connection signal="health_changed" from="." to="AnimationPlayer" method="_on_boss_3_health_changed"]

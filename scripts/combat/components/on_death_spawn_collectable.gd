@@ -4,7 +4,7 @@ class_name OnDeathSpawnCollectable
 @export var awards = {
 	"health": {
 		"scene": preload("res://scenes/objects/collectables/health_collectable.tscn"),
-		"chance": 1, # one in five
+		"chance": 5, # one in five
 	},
 } 
 

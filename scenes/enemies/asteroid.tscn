@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://030jn1smum0a"]
+[gd_scene load_steps=35 format=4 uid="uid://030jn1smum0a"]
 
 [ext_resource type="Script" path="res://scenes/enemies/asteroid.gd" id="1_iamhl"]
 [ext_resource type="Script" path="res://scripts/combat/hitbox_3d.gd" id="3_or822"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_death_award_points.gd" id="4_ffckt"]
 [ext_resource type="Script" path="res://scripts/combat/components/on_leave_screen_despawn.gd" id="5_4ws5f"]
 [ext_resource type="Script" path="res://scripts/hit_flash_player.gd" id="5_qfccd"]
+[ext_resource type="Script" path="res://scripts/combat/components/on_death_particle_spawner.gd" id="6_i7k57"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5f4vk"]
 radius = 0.4549
@@ -72,6 +73,121 @@ _data = {
 "flash": SubResource("Animation_ktina")
 }
 
+[sub_resource type="Curve" id="Curve_chnvs"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.616505, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_m3aeu"]
+curve = SubResource("Curve_chnvs")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_00hva"]
+particle_flag_align_y = true
+spread = 180.0
+initial_velocity_min = 12.0
+initial_velocity_max = 14.0
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_m3aeu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydxxa"]
+resource_local_to_scene = true
+albedo_color = Color(1, 0.397932, 0.0188694, 1)
+emission_enabled = true
+emission = Color(0.903957, 0.388226, 0, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_34bi8"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_ydxxa")
+top_radius = 0.05
+bottom_radius = 0.0
+height = 1.0
+
+[sub_resource type="Gradient" id="Gradient_3u7t2"]
+colors = PackedColorArray(0.821673, 0.579776, 0.0991864, 1, 1, 0.356863, 0.0980392, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ld6kq"]
+gradient = SubResource("Gradient_3u7t2")
+
+[sub_resource type="Curve" id="Curve_b8xh4"]
+max_value = 2.0
+_data = [Vector2(0, 2), 0.0, 0.0, 0, 0, Vector2(1, 0.943396), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dwgtl"]
+curve = SubResource("Curve_b8xh4")
+
+[sub_resource type="Curve" id="Curve_04q1p"]
+_data = [Vector2(0.0297619, 0.0490565), 0.0, 0.0, 0, 0, Vector2(0.244048, 0.984906), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qsdno"]
+curve = SubResource("Curve_04q1p")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nlky3"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 2.0
+initial_velocity_max = 4.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_qsdno")
+color = Color(0.980791, 0.700926, 0, 1)
+color_ramp = SubResource("GradientTexture1D_ld6kq")
+emission_curve = SubResource("CurveTexture_dwgtl")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3mkd"]
+resource_local_to_scene = true
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_bf55b"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_m3mkd")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_i5lwr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.648809, 0.818868), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_20qpe"]
+curve = SubResource("Curve_i5lwr")
+
+[sub_resource type="Curve" id="Curve_hqcq6"]
+_data = [Vector2(0.0297619, 0.0490565), 0.0, 0.0, 0, 0, Vector2(0.244048, 0.984906), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_pwxo8"]
+curve = SubResource("Curve_hqcq6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0eaxs"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 5, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_pwxo8")
+color = Color(0.178655, 0.178516, 7.21961e-08, 1)
+alpha_curve = SubResource("CurveTexture_20qpe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsmjl"]
+resource_local_to_scene = true
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_6u0am"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_jsmjl")
+radial_segments = 8
+rings = 4
+
 [node name="Asteroid" type="CharacterBody3D"]
 collision_layer = 4
 collision_mask = 0
@@ -109,5 +225,38 @@ libraries = {
 "": SubResource("AnimationLibrary_x61mu")
 }
 script = ExtResource("5_qfccd")
+
+[node name="OnDeathParticleSpawner" type="Node3D" parent="."]
+script = ExtResource("6_i7k57")
+
+[node name="Debris" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+emitting = false
+amount = 24
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_00hva")
+draw_pass_1 = SubResource("CylinderMesh_34bi8")
+
+[node name="Fire" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+emitting = false
+amount = 12
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_nlky3")
+draw_pass_1 = SubResource("SphereMesh_bf55b")
+
+[node name="Smoke" type="GPUParticles3D" parent="OnDeathParticleSpawner"]
+emitting = false
+amount = 12
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_0eaxs")
+draw_pass_1 = SubResource("SphereMesh_6u0am")
 
 [connection signal="health_changed" from="." to="AnimationPlayer" method="_on_asteroid_health_changed"]

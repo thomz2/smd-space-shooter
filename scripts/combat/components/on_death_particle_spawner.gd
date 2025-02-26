@@ -21,3 +21,7 @@ func spawn_particles() -> void:
 			child.reparent(get_tree().current_scene, true)
 			child.restart()
 			child.emitting = true
+			
+			#await get_tree().create_timer(1.0).timeout
+			#child.emitting = false
+			#queue_free()
