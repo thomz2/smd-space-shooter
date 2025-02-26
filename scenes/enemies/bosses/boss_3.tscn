@@ -25,6 +25,7 @@ load_path = "res://.godot/imported/tex01-512.png-a4e01f131e5c687e5004865f36e3306
 resource_local_to_scene = true
 albedo_texture = SubResource("CompressedTexture2D_kikpt")
 emission_enabled = true
+emission_energy_multiplier = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jgbsg"]
 resource_name = "Material-1"

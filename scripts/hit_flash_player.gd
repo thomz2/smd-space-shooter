@@ -10,7 +10,7 @@ func _on_enemy_ship_health_changed(new_amount: float, delta: float) -> void:
 
 func _on_tank_ship_health_changed(new_amount: float, delta: float) -> void:
 	self.play("flash", -1, 1.5)
-
+#
 
 func _on_tiny_ship_health_changed(new_amount: float, delta: float) -> void:
 	self.play("flash", -1, 1.5)
