@@ -12,8 +12,12 @@ extends CanvasLayer
 func _ready() -> void:
 	player.killed.connect(_on_player_killed)
 	
+	
 	health_bar.max_value = player.max_health
 	health_bar.value = player.max_health
+	
+	await player.ready
+	player.stats.max_health_changed.connect(_on_max_health_changed)
 
 
 func _process(delta:float) -> void:
@@ -25,6 +29,10 @@ func _process(delta:float) -> void:
 	
 	score_label.text  = "%08d       SCORE\n%08d   HISCORE" % [GameManager.score, GameManager.high_score]
 
+func _on_max_health_changed() -> void:
+	health_bar.max_value = player.max_health
+	health_bar.value = player.health
+	health_bar.get_minimum_size().x = 300 * player.max_health
 
 func _on_player_killed() -> void:
 	health_bar.value = 0

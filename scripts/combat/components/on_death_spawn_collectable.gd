@@ -2,13 +2,9 @@ extends Node
 class_name OnDeathSpawnCollectable
 
 @export var awards = {
-	"v_shot": {
-		"scene": preload("res://scenes/objects/collectables/v_shot_collectable.tscn"),
-		"chance": 1, # one in six
-	},
 	"health": {
 		"scene": preload("res://scenes/objects/collectables/health_collectable.tscn"),
-		"chance": 10,
+		"chance": 5,
 	},
 } 
 

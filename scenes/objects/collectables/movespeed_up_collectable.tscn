@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd1leo7w5x7rn"]
+
+[ext_resource type="Script" path="res://scenes/objects/collectables/movespeed_up_collectable.gd" id="1_6n11k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j2jg"]
+albedo_color = Color(0.5, 1, 0.566667, 1)
+emission_enabled = true
+emission = Color(0.5, 0.966667, 1, 1)
+emission_energy_multiplier = 2.28
+
+[sub_resource type="TorusMesh" id="TorusMesh_dcfl7"]
+material = SubResource("StandardMaterial3D_2j2jg")
+inner_radius = 0.2
+outer_radius = 0.4
+rings = 16
+ring_segments = 8
+
+[node name="MovespeedUpCollectable" type="Node3D"]
+script = ExtResource("1_6n11k")
+magnetize_speed = 20.0
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.01015e-08, -1.37496, 0, 1.37496, -6.01015e-08, 0, 0, 0, 1.37496, 0, 0, 0)
+mesh = SubResource("TorusMesh_dcfl7")

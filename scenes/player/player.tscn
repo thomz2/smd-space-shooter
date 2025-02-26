@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tl27y"]
 [ext_resource type="ArrayMesh" uid="uid://pou5tpidnnbv" path="res://assets/kenney_spaceships/craft_speederC.obj" id="2_bktko"]
-[ext_resource type="PackedScene" path="res://scenes/player/shot/basic_shot.tscn" id="2_epu45"]
+[ext_resource type="PackedScene" uid="uid://b8jk6ddp3o0hf" path="res://scenes/player/shot/basic_shot.tscn" id="2_epu45"]
 [ext_resource type="Script" path="res://scenes/player/player_reflector_area.gd" id="4_p5ua8"]
 [ext_resource type="PackedScene" uid="uid://7wauwjgrekp3" path="res://scenes/player/heads_up_display.tscn" id="5_d8vqi"]
 [ext_resource type="AudioStream" uid="uid://bsfg356yv2rq2" path="res://assets/SFX/dodgeSFX.wav" id="7_xi4m2"]

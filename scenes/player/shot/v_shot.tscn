@@ -5,4 +5,5 @@
 
 [node name="VShot" type="Node3D"]
 script = ExtResource("1_hyffi")
+cone_angle_degrees = 20.0
 packed_bullet = ExtResource("2_aloq2")
