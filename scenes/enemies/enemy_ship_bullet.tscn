@@ -69,3 +69,7 @@ mesh = SubResource("CapsuleMesh_blfp7")
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.270507, 0, 0, 0, -1.18242e-08, 0.270507, 0, -0.270507, -1.18242e-08, -0.5, 0, 0)
 mesh = SubResource("CapsuleMesh_erqpd")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="expire"]

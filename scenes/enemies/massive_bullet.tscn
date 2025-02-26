@@ -13,14 +13,13 @@ shading_mode = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yxtw8"]
 cull_mode = 1
 shading_mode = 0
-albedo_color = Color(0.949396, 2.21401e-06, 0.566582, 1)
+albedo_color = Color(0.839167, 0, 0.95, 1)
 
 [node name="MassiveBullet" type="CharacterBody3D" node_paths=PackedStringArray("main_hitbox")]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_nx4fl")
 initial_speed = 10.0
-lifespan = 20.0
 can_be_reflected = false
 main_hitbox = NodePath("Hitbox3D")
 

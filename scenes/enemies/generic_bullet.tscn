@@ -50,3 +50,5 @@ destroy_after_collision = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox3D"]
 shape = SubResource("SphereShape3D_167f6")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
