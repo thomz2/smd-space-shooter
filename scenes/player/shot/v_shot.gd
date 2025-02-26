@@ -20,4 +20,4 @@ func shoot() -> void:
 		elif i == 1:
 			bullet.rotate_x(deg_to_rad(-cone_angle_degrees/2))
 		
-		AudioManager.play_sfx("player_shot_1.wav")
+	AudioManager.play_sfx("player_shot_normal.wav")

@@ -66,9 +66,9 @@ func _on_health_changed(_amount, delta_health) -> void:
 	if delta_health < 0: #damage
 		GameManager.shake_camera(0.5)
 		invincibility_timer = 1.0
-		$CollisionSFX.play()
+		$DamageSFX.play()
 	else: #heal
-		#TODO: play healing sfx
+		$HealSFX.play()
 		pass
 
 func _on_stats_max_health_changed() -> void:
@@ -76,6 +76,7 @@ func _on_stats_max_health_changed() -> void:
 	health = stats.max_health
 
 func dodge() -> void:
+	#AudioManager.play_sfx("new_dodge%d.wav" % randi_range(1,3)) #cant hear
 	$DodgingSFX.play()
 	$ReflectParticle.restart()
 	dodge_timer = 0.8

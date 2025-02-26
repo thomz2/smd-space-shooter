@@ -36,4 +36,4 @@ func shoot():
 		bullet.global_position = $ShootOrigin.global_position
 		bullet.look_at(target_position, Vector3.UP)
 		await get_tree().create_timer(0.05).timeout
-	
+	AudioManager.play_sfx("enemy_shot_big.wav")

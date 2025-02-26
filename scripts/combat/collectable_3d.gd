@@ -38,6 +38,7 @@ func _physics_process(delta : float) -> void:
 		
 		var squared_distance_to_player = player.global_position.distance_squared_to(self.global_position)
 		if squared_distance_to_player <= distance_to_collect * distance_to_collect:
+			AudioManager.play_sfx("collect.wav")
 			was_collected = true
 			collected.emit()
 			on_collected()

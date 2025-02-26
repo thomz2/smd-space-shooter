@@ -7,7 +7,7 @@ const SFX_FOLDER = "res://assets/SFX/"
 
 var music_player : AudioStreamPlayer
 
-var num_sfx_players = 20
+var num_sfx_players = 50
 var sfx_available = []  # The available players.
 var sfx_queue = []  # The queue of sounds to play.
 

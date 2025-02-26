@@ -53,6 +53,7 @@ func shoot_blasters() -> void:
 			var angle = deg_to_rad(10)
 			if d == 0: bullet.rotate_x(angle)
 			else: bullet.rotate_x(-angle)
+			AudioManager.play_sfx("enemy_shot.wav")
 		await get_tree().create_timer(0.2).timeout
 
 
@@ -68,4 +69,5 @@ func shoot_spread() -> void:
 		var angle = deg_to_rad(5) * i
 		if i%2 == 0: angle *= -1
 		bullet.rotate_x(angle)
+		AudioManager.play_sfx("enemy_shot_tiny.wav")
 		await get_tree().create_timer(0.05).timeout

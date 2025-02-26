@@ -25,5 +25,6 @@ func shoot():
 	bullet.global_position = self.global_position
 	bullet.global_rotation = self.global_rotation
 	bullet.rotate_x(deg_to_rad(shoot_angle_degrees))
-	
+	AudioManager.play_sfx("enemy_shot_tiny.wav")
 	shoot_angle_degrees += 30
+	

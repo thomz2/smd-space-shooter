@@ -20,6 +20,8 @@ func _on_body_entered(body:Node3D) -> void:
 # Obs.: essa função não lida com o tiro da nave tank
 # em vez disso, vá para res://scenes/enemies/tank_ship_bullet.gd
 func _reflect_bullet(bullet:Bullet3D) -> void:
+	AudioManager.play_sfx("reflect_shot2.wav")
+	
 	bullet.set_global_forwards(-bullet.get_global_forwards())
 	#revert target type for every bullet
 	for child in bullet.get_children():

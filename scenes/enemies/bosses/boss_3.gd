@@ -89,6 +89,7 @@ func shoot_massive_bullet() -> void:
 	get_tree().current_scene.add_child(bullet)
 	bullet.global_position = marker.global_position
 	bullet.set_global_forwards(marker.global_position.direction_to(player.global_position))
+	AudioManager.play_sfx("enemy_shot_big.wav")
 
 
 func shoot_blasters() -> void:
@@ -114,4 +115,5 @@ func shoot_blasters() -> void:
 			if d % 2 == 0: angle /= 2
 			if d < 2: bullet.rotate_x(angle)
 			else: bullet.rotate_x(-angle)
+		AudioManager.play_sfx("enemy_shot.wav")
 		await get_tree().create_timer(0.1).timeout

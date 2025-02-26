@@ -40,6 +40,7 @@ func spawn_bullets() -> void:
 	var angle_step_degrees := 360.0 / amount_to_spawn
 	var current_angle_degrees := angle_offset_degrees
 	#var initial_position := self.global_position
+	if amount_to_spawn > 0: AudioManager.play_sfx("enemy_shot_tiny.wav")
 	for i in range(amount_to_spawn):
 		#make a node from a packed scene
 		var bullet : Bullet3D = packed_bullet.instantiate()
